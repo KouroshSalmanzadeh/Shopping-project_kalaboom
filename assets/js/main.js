@@ -14,6 +14,54 @@
 //     }
 //   });
 
-// function menuHover() {
-//     document.querySelector()
-// }
+// animate for i tag when hover ___Start___
+function menuHover(a) {
+    var type = a;
+    switch (type){
+        case 'shirt':
+            document.querySelector('.fa-shirt').classList.add('fa-bounce');
+            break;
+
+        case 'shoe':
+            document.querySelector('.fa-shoe-prints').classList.add('fa-bounce');
+            break;
+
+        case 'clock':
+            document.querySelector('.fa-clock').classList.add('fa-bounce');
+            break;
+
+        case 'ring':
+            document.querySelector('.fa-ring').classList.add('fa-bounce');
+            break;
+
+        case 'glasses':
+            document.querySelector('.fa-glasses').classList.add('fa-bounce');
+            break;
+    };
+};
+
+function menuBlur(a){
+    var type = a;
+    switch (type){
+        case 'shirt':
+            document.querySelector('.fa-shirt').classList.remove('fa-bounce');
+            break;
+
+        case 'shoe':
+            document.querySelector('.fa-shoe-prints').classList.remove('fa-bounce');
+            break;
+
+        case 'clock':
+            document.querySelector('.fa-clock').classList.remove('fa-bounce');
+            break;
+
+        case 'ring':
+            document.querySelector('.fa-ring').classList.remove('fa-bounce');
+            break;
+
+        case 'glasses':
+            document.querySelector('.fa-glasses').classList.remove('fa-bounce');
+            break;
+    };
+}
+// animate for i tag when hover ___End___
