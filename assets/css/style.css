@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'vazir';
+    src: url(../fonts/vazir-font-v16.1.0/Vazir.eot) format(eot);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir.ttf) format(ttf);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir.woff) format(woff);
+    src: url(../fonts/vazir-font-v16.1.0/Vazir.woff2) format(woff);
+}
+
+html, body {
+    font-size: 16px;
+    font-family: 'vazir';
+    direction: rtl;
+    background-color: #030303c9;
+    border-radius: 0 0 20px 20px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --transition: all 0.4s ease-out;
+    --pink-logo-color: #ff9191;
+    --orange-logo-color: #ffc05b;
+    --green-logo-color: #9bd661;
+}
+
+.container1 {
+    width: 80vw;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* header ___Start___ */
+header {
+    width: 100vw;
+    height: auto;
+    background-color: #202022;
+    border-radius: 0 0 20px 20px;
+    position: sticky;
+}
+
+/* banner style ___Start___ */
+div.banner {
+    width: 100%;
+}
+
+div.banner img {
+    width: 100vw;
+}
+/* banner style ___End___ */
+
+/* nav {
+    display: flex;
+} */
+nav .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+nav .nav-right img {
+    width: 4vw;
+    height: 4vw;
+}
+
+nav .nav-right span {
+    font-size: 2vw;
+    color: white;
+    font-family: cursive;
+}
+
+nav .nav-right .menu {
+    width: 35vw;
+}
+
+nav .nav-right .menu li {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 1.5em;
+}
+
+nav .nav-right .menu li a {
+    color: gainsboro;
+    position: relative;
+    font-size: 1vw;
+    transition: all 0.4s ease;
+}
+
+nav .nav-right .menu li:hover a {
+    color: var(--green-logo-color);
+}
+
+nav .nav-right .menu li i {
+    color: gainsboro;
+    transition: all 0.4s ease;
+}
+
+nav .nav-right .menu li:hover i {
+    color: var(--pink-logo-color);
+}
+
+nav .nav-right .menu li a::before {
+    content: "";
+    width: 0%;
+    height: 3px;
+    color: #ff9191;
+    background-color: #ff9191;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transition: var(--transition);
+}
+
+nav .nav-right .menu li:hover a::before {
+    width: 100%;
+    left: auto;
+    right: 0;
+}
+
+/* header ___End___ */
