@@ -12,7 +12,8 @@
     src: url(../fonts/vazir-font-v16.1.0/Vazir.woff2) format(woff);
 }
 
-html, body {
+html,
+body {
     font-size: 16px;
     font-family: 'vazir';
     direction: rtl;
@@ -59,6 +60,7 @@ div.banner {
 div.banner img {
     width: 100vw;
 }
+
 /* banner style ___End___ */
 
 /* nav {
@@ -81,18 +83,24 @@ nav .nav-right span {
 }
 
 nav .nav-right .menu {
-    width: 35vw;
+    width: 40vw;
+    margin-right: 15px;
 }
 
 nav .nav-right .menu li {
+    width: 100px;
     display: inline-block;
-    font-size: 1.2em;
-    margin-right: 1.5em;
+    text-align: center;
+}
+
+nav .nav-right .menu li:nth-child(4){
+    width: 125px;
 }
 
 nav .nav-right .menu li a {
     color: gainsboro;
     position: relative;
+    display: block;
     font-size: 1vw;
     transition: all 0.4s ease;
 }
