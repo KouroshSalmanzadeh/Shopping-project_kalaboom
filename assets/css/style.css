@@ -12,6 +12,14 @@
     src: url(../fonts/vazir-font-v16.1.0/Vazir.woff2) format(woff);
 }
 
+@font-face {
+    font-family: 'yekan';
+    src: url(../fonts/yekan/Yekan.eot) format(eot);
+    src: url(../fonts/yekan/Yekan.ttf) format(ttf);
+    src: url(../fonts/yekan/Yekan.woff) format(woff);
+    src: url(../fonts/yekan/Yekan.woff2) format(woff2);
+}
+
 html,
 body {
     font-size: 16px;
@@ -83,7 +91,7 @@ nav .nav-right span {
 }
 
 nav .nav-right .menu {
-    width: 40vw;
+    width: 30vw;
     margin-right: 15px;
 }
 
@@ -176,3 +184,116 @@ nav .nav-right .menu li:hover a::before {
     opacity: 1;
 }
 /* reveal and active for boxs ___End___ */
+
+/* search box __Start__ */
+
+.search-box {
+    .search {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 10px;
+      width: 55px;
+      height: 55px;
+      background: var(--pink-logo-color);
+      border-radius: 100%;
+      transition: all 1s;
+      z-index: 4;
+      box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+      /* box-shadow: 0 0 25px 0 crimson; */
+      &:hover {
+        cursor: pointer;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        margin: auto;
+        top: 22px;
+        right: 0;
+        bottom: 0;
+        left: 20px;
+        width: 12px;
+        height: 5px; 
+        background: white;
+        transform: rotate(45deg);
+        border-radius: 25px;
+        transition: all .5s;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 4px solid white;
+        transition: all .5s;
+      }
+    }
+    input {
+        font-family: 'yekan';
+        font-size: 15px;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        outline: none;
+        border: none;
+        border-bottom: 3px solid rgb(255 145 145);
+        background: var(--orange-logo-color);
+        color: rgb(0, 0, 0);
+        padding: 0 80px 0 20px;
+        border-radius: 30px;
+        box-shadow: 0 0 15px 0 #838383, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+        transition: all 1s;
+        opacity: 0;
+        z-index: 5;
+        font-weight: bolder;
+        letter-spacing: 0.1em;
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        width: 310px;
+        /* right: auto; */
+        opacity: 1;
+        cursor: text;
+      }
+      &:focus ~ .search {
+        right: -250px;
+        background: #151515;
+        z-index: 6;
+        &::before {
+          top: 0;
+          left: 0;
+          width: 25px;
+        }
+        &::after {
+          top: 0;
+          left: 0;
+          width: 25px;
+          height: 5px;
+          border: none;
+          background: white;
+          border-radius: 25px;
+          transform: rotate(-45deg);
+        }
+      }
+      &::placeholder {
+        color: white;
+        opacity: 0.5;
+        font-weight: bolder;
+      }
+    }
+  }
+  
