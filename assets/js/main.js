@@ -65,3 +65,70 @@ function menuBlur(a){
     };
 }
 // animate for i tag when hover ___End___
+
+
+// reveal and active for boxs ___Start___
+function revealTop() {
+    var reveals = document.querySelectorAll('.reveal-top');
+
+    for (i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 70;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active-top');
+        }else {
+            reveals[i].classList.remove('active-top');
+        };
+    };
+};
+
+
+function revealRight() {
+    var reveals = document.querySelectorAll('.reveal-right');
+
+    for (i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 70;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active-right');
+        }else {
+            reveals[i].classList.remove('active-right');
+        };
+    };
+};
+
+
+function revealLeft() {
+    var reveals = document.querySelectorAll('.reveal-left');
+
+    for (i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 70;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active-left');
+        }else {
+            reveals[i].classList.remove('active-left');
+        };
+    };
+};
+
+window.addEventListener("scroll", function (){
+    const myTimeout = setTimeout(revealTop, 1000);
+
+});
+window.addEventListener("DOMContentLoaded", function (){
+    const myTimeout = setTimeout(revealTop, 700);
+});
+
+window.addEventListener("scroll", revealRight);
+window.addEventListener("DOMContentLoaded", revealRight);
+
+window.addEventListener("scroll", revealLeft);
+window.addEventListener("DOMContentLoaded", revealLeft);
+// reveal and active for boxs ___End___

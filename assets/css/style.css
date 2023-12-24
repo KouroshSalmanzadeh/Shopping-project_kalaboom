@@ -137,3 +137,42 @@ nav .nav-right .menu li:hover a::before {
 }
 
 /* header ___End___ */
+
+
+/* reveal and active for boxs ___Start___ */
+.reveal-top {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.active-top {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.reveal-right {
+    position: relative;
+    transform: translatex(100%);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.active-right {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.reveal-left {
+    position: relative;
+    transform: translatex(-100%);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.active-left {
+    transform: translateX(0);
+    opacity: 1;
+}
+/* reveal and active for boxs ___End___ */
