@@ -88,11 +88,15 @@ nav .nav-right span {
     font-size: 2vw;
     color: white;
     font-family: cursive;
+    z-index: 1;
 }
 
 nav .nav-right .menu {
     width: 30vw;
-    margin-right: 15px;
+    margin-right: 20px;
+    z-index: 2;
+    background: #202022;
+    padding: 10px 0;
 }
 
 nav .nav-right .menu li {
@@ -101,7 +105,7 @@ nav .nav-right .menu li {
     text-align: center;
 }
 
-nav .nav-right .menu li:nth-child(4){
+nav .nav-right .menu li:nth-child(4) {
     width: 125px;
 }
 
@@ -183,66 +187,84 @@ nav .nav-right .menu li:hover a::before {
     transform: translateX(0);
     opacity: 1;
 }
+
 /* reveal and active for boxs ___End___ */
 
+
 /* search box __Start__ */
+.main-box-search {
+    width: 110px;
+    height: 70px;
+    position: relative;
+    display: flex;
+}
 
 .search-box {
+    width: 100%;
+    height: 100%;
+}
+
+.search-box {
+    position: relative;
+
     .search {
-      position: absolute;
-      margin: auto;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 10px;
-      width: 55px;
-      height: 55px;
-      background: var(--pink-logo-color);
-      border-radius: 100%;
-      transition: all 1s;
-      z-index: 4;
-      box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-      /* box-shadow: 0 0 25px 0 crimson; */
-      &:hover {
-        cursor: pointer;
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        margin: auto;
-        top: 22px;
-        right: 0;
-        bottom: 0;
-        left: 20px;
-        width: 12px;
-        height: 5px; 
-        background: white;
-        transform: rotate(45deg);
-        border-radius: 25px;
-        transition: all .5s;
-      }
-      &::after {
-        content: "";
         position: absolute;
         margin: auto;
         top: 0;
         right: 0;
         bottom: 0;
-        left: 0;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        border: 4px solid white;
-        transition: all .5s;
-      }
+        left: 10px;
+        width: 55px;
+        height: 55px;
+        background: var(--pink-logo-color);
+        border-radius: 100%;
+        transition: all 1s;
+        z-index: 4;
+        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            margin: auto;
+            top: 22px;
+            right: 0;
+            bottom: 0;
+            left: 20px;
+            width: 12px;
+            height: 5px;
+            background: white;
+            transform: rotate(45deg);
+            border-radius: 25px;
+            transition: all .5s;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 4px solid white;
+            transition: all .5s;
+        }
     }
+
     input {
         font-family: 'yekan';
         font-size: 15px;
         position: absolute;
         margin: auto;
         top: 0;
-        right: 0;
+        right: auto;
         bottom: 0;
         left: 0;
         width: 40px;
@@ -260,40 +282,60 @@ nav .nav-right .menu li:hover a::before {
         z-index: 5;
         font-weight: bolder;
         letter-spacing: 0.1em;
-      &:hover {
-        cursor: pointer;
-      }
-      &:focus {
-        width: 310px;
-        /* right: auto; */
-        opacity: 1;
-        cursor: text;
-      }
-      &:focus ~ .search {
-        right: -250px;
-        background: #151515;
-        z-index: 6;
-        &::before {
-          top: 0;
-          left: 0;
-          width: 25px;
+
+        &:hover {
+            cursor: pointer;
         }
-        &::after {
-          top: 0;
-          left: 0;
-          width: 25px;
-          height: 5px;
-          border: none;
-          background: white;
-          border-radius: 25px;
-          transform: rotate(-45deg);
+
+        &:focus {
+            width: 310px;
+            opacity: 1;
+            right: auto;
+            cursor: text;
         }
-      }
-      &::placeholder {
-        color: white;
-        opacity: 0.5;
-        font-weight: bolder;
-      }
+
+        &:focus~.search {
+            right: -500px;
+            background: #151515;
+            z-index: 6;
+
+            &::before {
+                top: 0;
+                left: 0;
+                width: 25px;
+                position: absolute;
+
+            }
+
+            &::after {
+                top: 0;
+                left: 0;
+                width: 25px;
+                height: 5px;
+                border: none;
+                background: white;
+                border-radius: 25px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &::placeholder {
+            color: white;
+            opacity: 0.5;
+            font-weight: bolder;
+        }
     }
-  }
-  
+}
+/* search box __End__ */
+
+/* hide and show logo when search box is focus __Satrt__ */
+.hide-for-search {
+    transform: translateX(33%);
+    transition: all 1s;
+}
+
+.show-for-search {
+    transform: translateX(0);
+    transition: all 1s;
+}
+/* hide and show logo when search box is focus __Satrt__ */

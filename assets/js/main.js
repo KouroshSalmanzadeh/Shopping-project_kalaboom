@@ -132,3 +132,16 @@ window.addEventListener("DOMContentLoaded", revealRight);
 window.addEventListener("scroll", revealLeft);
 window.addEventListener("DOMContentLoaded", revealLeft);
 // reveal and active for boxs ___End___
+
+
+// hide and show logo when search box is focus __Satrt__
+function hideWithSearchbox() {
+    document.querySelector('.menu').classList.add('hide-for-search');
+    document.querySelector('.menu').classList.remove('show-for-search');
+}
+
+function showWithSearchbox() {
+    document.querySelector('.menu').classList.remove('hide-for-search');
+    document.querySelector('.menu').classList.add('show-for-search');
+}
+// hide and show logo when search box is focus __End__
