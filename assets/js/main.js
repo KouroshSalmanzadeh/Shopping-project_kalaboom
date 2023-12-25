@@ -129,8 +129,14 @@ window.addEventListener("DOMContentLoaded", function (){
 window.addEventListener("scroll", revealRight);
 window.addEventListener("DOMContentLoaded", revealRight);
 
-window.addEventListener("scroll", revealLeft);
-window.addEventListener("DOMContentLoaded", revealLeft);
+window.addEventListener("scroll", function (){
+    const myTimeout = setTimeout(revealLeft, 1200);
+
+});
+window.addEventListener("DOMContentLoaded", function (){
+    const myTimeout = setTimeout(revealLeft, 1225);
+
+});
 // reveal and active for boxs ___End___
 
 
@@ -175,3 +181,13 @@ function buttonBlurLogin(buttonNum) {
     }
 }
 // Login Button and Sign up __End__
+
+function showTooltip() {
+    document.querySelector('.button-shop').classList.add('active-shopping-button');
+    document.getElementById('fa-cart-shopping').style.color = "#fff";
+}
+
+function hideTooltip() {
+    document.querySelector('.button-shop').classList.remove('active-shopping-button');
+    document.getElementById('fa-cart-shopping').style.color = "#ff9191";
+}
