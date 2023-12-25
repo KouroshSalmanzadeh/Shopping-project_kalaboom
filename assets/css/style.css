@@ -54,10 +54,11 @@ a {
 /* header ___Start___ */
 header {
     width: 100vw;
-    height: auto;
+    height: 155px;
     background-color: #202022;
     border-radius: 0 0 20px 20px;
     position: sticky;
+    box-shadow: 0 6px 6px rgba(255, 255, 255, 0.1);
 }
 
 /* banner style ___Start___ */
@@ -75,6 +76,8 @@ div.banner img {
     display: flex;
 } */
 nav .nav-right {
+    float: right;
+    width: 55%;
     display: flex;
     align-items: center;
 }
@@ -339,3 +342,113 @@ nav .nav-right .menu li:hover a::before {
     transition: all 1s;
 }
 /* hide and show logo when search box is focus __Satrt__ */
+
+header nav .nav-left {
+    float: left;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Login Button and Sign up __Start__*/
+
+.buttons {
+    width: 8vw;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonLogin {
+    --width: 70px;
+    --height: 35px;
+    --tooltip-height: 35px;
+    --tooltip-width: 90px;
+    --gap-between-tooltip-to-button: 18px;
+    --button-color: #1163ff;
+    --tooltip-color: #fff;
+    width: var(--width);
+    height: var(--height);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    transition: var(--transition);
+    font-family: 'yekan';
+  }
+
+  .button1 {
+    background-color: var(--pink-logo-color);
+  }
+
+  .button2 {
+    background-color: var(--green-logo-color);
+  }
+
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-wrapper,.text,.icon {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    color: #fff;
+  }
+  
+  .text {
+    top: 0
+  }
+  
+  .text,.icon {
+    transition: top 0.5s;
+  }
+  
+  .icon {
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon1 {
+    color: var(--pink-logo-color);
+  }
+
+  .icon2 {
+    color: var(--green-logo-color);
+  }
+
+  .buttonLogin:hover {
+    background: #fff;
+  }
+
+  .buttonLogin:hover .text {
+    top: -100%;
+  }
+  
+  .buttonLogin:hover .icon {
+    top: 0;
+  }
+
+  .active-button {
+    width: 100%;
+    transition: var(--transition);
+    visibility: visible;
+    opacity: 1;
+    font-size: 1.3vw;
+    font-weight: 700;
+  }
+
+  .hide-button {
+    width: 0;
+    transition: var(--transition);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+/* Login Button and Sign up __End__*/

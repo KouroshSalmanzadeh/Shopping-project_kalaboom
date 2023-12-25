@@ -145,3 +145,33 @@ function showWithSearchbox() {
     document.querySelector('.menu').classList.add('show-for-search');
 }
 // hide and show logo when search box is focus __End__
+
+// Login Button and Sign up __Start__
+function buttonHoverLogin(buttonNum) {
+    switch (buttonNum) {
+        case 'button1':
+            document.querySelector('.button1').classList.add('active-button');
+            document.querySelector('.button2').classList.add('hide-button');
+            break;
+
+        case 'button2':
+            document.querySelector('.button2').classList.add('active-button');
+            document.querySelector('.button1').classList.add('hide-button');
+            break;
+    }
+}
+
+function buttonBlurLogin(buttonNum) {
+    switch (buttonNum) {
+        case 'button1':
+            document.querySelector('.button1').classList.remove('active-button');
+            document.querySelector('.button2').classList.remove('hide-button');
+            break;
+
+        case 'button2':
+            document.querySelector('.button2').classList.remove('active-button');
+            document.querySelector('.button1').classList.remove('hide-button');
+            break;
+    }
+}
+// Login Button and Sign up __End__
