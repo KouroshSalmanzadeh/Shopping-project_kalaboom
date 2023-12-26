@@ -2,10 +2,10 @@
 // window.addEventListener('scroll', function() {
 //     // ارتفاع اسکرول شده را دریافت کنید
 //     var scrollPosition = window.scrollY;
-  
+
 //     // منوی ثابت
 //     var fixedMenu = document.getElementById('fixed-menu');
-  
+
 //     // اگر اسکرول به اندازه کافی پایین رفته باشد، منو را فیکس کنید
 //     if (scrollPosition > 50) {
 //       fixedMenu.style.backgroundColor = '#555'; // تغییرات رنگ می‌تواند به سلیقه شما باشد
@@ -14,10 +14,10 @@
 //     }
 //   });
 
-// animate for i tag when hover ___Start___
+// animate for i tag when hover ___Strat___
 function menuHover(a) {
     var type = a;
-    switch (type){
+    switch (type) {
         case 'shirt':
             document.querySelector('.fa-shirt').classList.add('fa-bounce');
             break;
@@ -40,9 +40,9 @@ function menuHover(a) {
     };
 };
 
-function menuBlur(a){
+function menuBlur(a) {
     var type = a;
-    switch (type){
+    switch (type) {
         case 'shirt':
             document.querySelector('.fa-shirt').classList.remove('fa-bounce');
             break;
@@ -78,7 +78,7 @@ function revealTop() {
 
         if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add('active-top');
-        }else {
+        } else {
             reveals[i].classList.remove('active-top');
         };
     };
@@ -95,7 +95,7 @@ function revealRight() {
 
         if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add('active-right');
-        }else {
+        } else {
             reveals[i].classList.remove('active-right');
         };
     };
@@ -112,28 +112,28 @@ function revealLeft() {
 
         if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add('active-left');
-        }else {
+        } else {
             reveals[i].classList.remove('active-left');
         };
     };
 };
 
-window.addEventListener("scroll", function (){
+window.addEventListener("scroll", function () {
     const myTimeout = setTimeout(revealTop, 1000);
 
 });
-window.addEventListener("DOMContentLoaded", function (){
+window.addEventListener("DOMContentLoaded", function () {
     const myTimeout = setTimeout(revealTop, 700);
 });
 
 window.addEventListener("scroll", revealRight);
 window.addEventListener("DOMContentLoaded", revealRight);
 
-window.addEventListener("scroll", function (){
+window.addEventListener("scroll", function () {
     const myTimeout = setTimeout(revealLeft, 1200);
 
 });
-window.addEventListener("DOMContentLoaded", function (){
+window.addEventListener("DOMContentLoaded", function () {
     const myTimeout = setTimeout(revealLeft, 1225);
 
 });
@@ -182,6 +182,7 @@ function buttonBlurLogin(buttonNum) {
 }
 // Login Button and Sign up __End__
 
+// Tooltip show __Start__
 function showTooltip() {
     document.querySelector('.button-shop').classList.add('active-shopping-button');
     document.getElementById('fa-cart-shopping').style.color = "#fff";
@@ -191,3 +192,58 @@ function hideTooltip() {
     document.querySelector('.button-shop').classList.remove('active-shopping-button');
     document.getElementById('fa-cart-shopping').style.color = "#ff9191";
 }
+// Tooltip show __End__
+
+
+// Dark mode __Satrt__
+
+var switchTheme = document.querySelector('.switch-theme-mode');
+var themeType = "dark";
+var lightColorItems = document.querySelectorAll('.light-theme-color');
+var logo = document.querySelector('.logo-img');
+var header = document.querySelector('header');
+var body = document.querySelector('body');
+var menu = document.querySelector('.menu');
+
+function setLight() {
+    body.classList.add('white-back-color');
+    header.classList.add('grey-back-color');
+    logo.src = "assets/img/logo/logo22-removebg-preview.png";
+    menu.classList.add('grey-back-color');
+
+    for (i = 0; i < lightColorItems.length; i++) {
+        lightColorItems[i].classList.add('black-color');
+    }
+}
+
+// function setDark() {
+//     body.classList.remove('white-back-color');
+//     header.classList.remove('grey-back-color');
+//     logo.src = "assets/img/logo/logo 22.1.png";
+//     menu.classList.remove('grey-back-color');
+
+//     for (i = 0; i < lightColorItems.length; i++) {
+//         lightColorItems[i].classList.remove('black-color');
+//     }
+// }
+
+function setTheme() {
+    debugger
+    switch (themeType) {
+        case "dark":
+            setLight();
+            themeType = "light";
+            break;
+
+        case "light":
+            setDark();
+            themeType = "dark";
+            break;
+    };
+};
+
+
+
+switchTheme.addEventListener("click", setTheme);
+
+// Dark mode __End__

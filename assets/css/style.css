@@ -20,7 +20,6 @@
     src: url(../fonts/yekan/Yekan.woff2) format(woff2);
 }
 
-html,
 body {
     font-size: 16px;
     font-family: 'vazir';
@@ -42,6 +41,33 @@ a {
     --pink-logo-color: #ff9191;
     --orange-logo-color: #ffc05b;
     --green-logo-color: #9bd661;
+
+    --dark-back: #000;
+    --light-back: #fff;
+
+}
+
+.white-color {
+    color: white !important;
+    transition: var(--transition);
+}
+.white-back-color {
+    background-color: white !important;
+    transition: var(--transition);
+}
+
+.grey-back-color {
+    background-color: rgb(222, 222, 222) !important;
+    transition: var(--transition);
+}
+
+.black-color {
+    color: black !important;
+    transition: var(--transition);
+}
+.black-back-color {
+    background-color: black !important;
+    transition: var(--transition);
 }
 
 .container1 {
@@ -77,7 +103,6 @@ div.banner img {
 } */
 nav .nav-right {
     float: right;
-    width: 55%;
     display: flex;
     align-items: center;
 }
@@ -233,10 +258,10 @@ nav .nav-right .menu li:hover a::before {
             content: "";
             position: absolute;
             margin: auto;
-            top: 22px;
+            top: 17px;
             right: 0;
             bottom: 0;
-            left: 20px;
+            left: 15px;
             width: 12px;
             height: 5px;
             background: white;
@@ -249,8 +274,8 @@ nav .nav-right .menu li:hover a::before {
             content: "";
             position: absolute;
             margin: auto;
-            top: 0;
-            right: 0;
+            top: -5px;
+            right: 5px;
             bottom: 0;
             left: 0;
             width: 15px;
@@ -312,7 +337,7 @@ nav .nav-right .menu li:hover a::before {
 
             &::after {
                 top: 0;
-                left: 0;
+                left: 5px;
                 width: 25px;
                 height: 5px;
                 border: none;
@@ -334,7 +359,7 @@ nav .nav-right .menu li:hover a::before {
 
 /* hide and show logo when search box is focus __Satrt__ */
 .hide-for-search {
-    transform: translateX(33%);
+    transform: translateX(35%);
     transition: all 1s;
 }
 
@@ -534,6 +559,8 @@ header nav .nav-left {
 
 .tooltip {
     position: absolute;
+    display: flex;
+    justify-content: center;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -578,3 +605,58 @@ header nav .nav-left {
 }
 
 /* tooltip for shop button __Start__*/
+
+
+/* Darkmode box ___Start___ */
+/* The switch - the box around the slider */
+label.switch-theme-mode {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+
+/* Hide default HTML checkbox */
+label.switch-theme-mode input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+label.switch-theme-mode .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    transition: .5s;
+    border-radius: 30px;
+}
+
+label.switch-theme-mode .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: black;
+    transition: .5s;
+}
+
+label.switch-theme-mode input:checked+.slider {
+    background-color: var(--light-back);
+}
+
+label.switch-theme-mode input:checked+.slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+}
+
+/* Darkmode box ___End___ */
