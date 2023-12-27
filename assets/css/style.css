@@ -50,11 +50,11 @@ a {
 
 .white-color {
     color: white !important;
-    transition: var(--transition);
+    transition: color 0.5s;
 }
 .white-back-color {
     background-color: white !important;
-    transition: var(--transition);
+    transition: background-color 0.5s;
 }
 
 .grey-back-color {
@@ -64,11 +64,12 @@ a {
 
 .black-color {
     color: black !important;
-    transition: var(--transition);
+    transition: color 0.5s;
+
 }
 .black-back-color {
     background-color: black !important;
-    transition: var(--transition);
+    transition: background-color 0.5s;
 }
 
 .container1 {
@@ -99,9 +100,6 @@ div.banner img {
 
 /* banner style ___End___ */
 
-/* nav {
-    display: flex;
-} */
 nav .nav-right {
     float: right;
     display: flex;
@@ -115,7 +113,9 @@ nav .nav-right img {
 
 nav .nav-right span {
     font-size: 2vw;
-    color: white;
+    background-image: linear-gradient(180deg, #9dd860 43%,#000 60% , #ff9191 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
     font-family: cursive;
     z-index: 1;
 }
@@ -360,7 +360,7 @@ nav .nav-right .menu li:hover a::before {
 
 /* hide and show logo when search box is focus __Satrt__ */
 .hide-for-search {
-    transform: translateX(35%);
+    transform: translateX(33%);
     transition: all 1s;
 }
 

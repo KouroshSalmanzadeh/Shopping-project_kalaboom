@@ -152,17 +152,19 @@ function showWithSearchbox() {
 }
 // hide and show logo when search box is focus __End__
 
+
 // Login Button and Sign up __Start__
 function buttonHoverLogin(buttonNum) {
+    // debugger
     switch (buttonNum) {
         case 'button1':
-            document.querySelector('.button1').classList.add('active-button');
             document.querySelector('.button2').classList.add('hide-button');
+            document.querySelector('.button1').classList.add('active-button');
             break;
 
         case 'button2':
-            document.querySelector('.button2').classList.add('active-button');
             document.querySelector('.button1').classList.add('hide-button');
+            document.querySelector('.button2').classList.add('active-button');
             break;
     }
 }
@@ -211,9 +213,10 @@ function switchTheme() {
 
         function setLight() {
             body.classList.add('white-back-color');
+            menu.classList.add('grey-back-color');
             header.classList.add('grey-back-color');
             logo.src = "assets/img/logo/logo22-removebg-preview.png";
-            menu.classList.add('grey-back-color');
+            // logo.style.transition = "all 2.5s ease 3s";
             header.classList.add('box-shadow-header');
             searchBox.classList.remove('box-shadow-search-box');
 
