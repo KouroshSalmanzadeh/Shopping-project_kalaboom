@@ -195,55 +195,50 @@ function hideTooltip() {
 // Tooltip show __End__
 
 
-// Dark mode __Satrt__
 
-var switchTheme = document.querySelector('.switch-theme-mode');
-var themeType = "dark";
+// Dark mode __Satrt__
+const toggleSwitch = document.getElementById('mode-toggle');
+
 var lightColorItems = document.querySelectorAll('.light-theme-color');
 var logo = document.querySelector('.logo-img');
 var header = document.querySelector('header');
 var body = document.querySelector('body');
 var menu = document.querySelector('.menu');
+var searchBox = document.querySelector('.search');
 
-function setLight() {
-    body.classList.add('white-back-color');
-    header.classList.add('grey-back-color');
-    logo.src = "assets/img/logo/logo22-removebg-preview.png";
-    menu.classList.add('grey-back-color');
+function switchTheme() {
+    if (toggleSwitch.checked) {
 
-    for (i = 0; i < lightColorItems.length; i++) {
-        lightColorItems[i].classList.add('black-color');
+        function setLight() {
+            body.classList.add('white-back-color');
+            header.classList.add('grey-back-color');
+            logo.src = "assets/img/logo/logo22-removebg-preview.png";
+            menu.classList.add('grey-back-color');
+            header.classList.add('box-shadow-header');
+            searchBox.classList.remove('box-shadow-search-box');
+
+            for (i = 0; i < lightColorItems.length; i++) {
+                lightColorItems[i].classList.add('black-color');
+            }
+        }
+        setLight();
+    } else {
+
+        function setDark() {
+            body.classList.remove('white-back-color');
+            header.classList.remove('grey-back-color');
+            logo.src = "assets/img/logo/logo 22.1.png";
+            menu.classList.remove('grey-back-color');
+            header.classList.remove('box-shadow-header');
+            searchBox.classList.add('box-shadow-search-box');
+
+            for (i = 0; i < lightColorItems.length; i++) {
+                lightColorItems[i].classList.remove('black-color');
+            }
+        }
+        setDark();
     }
 }
 
-// function setDark() {
-//     body.classList.remove('white-back-color');
-//     header.classList.remove('grey-back-color');
-//     logo.src = "assets/img/logo/logo 22.1.png";
-//     menu.classList.remove('grey-back-color');
-
-//     for (i = 0; i < lightColorItems.length; i++) {
-//         lightColorItems[i].classList.remove('black-color');
-//     }
-// }
-
-function setTheme() {
-    debugger
-    switch (themeType) {
-        case "dark":
-            setLight();
-            themeType = "light";
-            break;
-
-        case "light":
-            setDark();
-            themeType = "dark";
-            break;
-    };
-};
-
-
-
-switchTheme.addEventListener("click", setTheme);
-
+toggleSwitch.addEventListener('change', switchTheme);
 // Dark mode __End__

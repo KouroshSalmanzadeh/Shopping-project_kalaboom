@@ -26,6 +26,7 @@ body {
     direction: rtl;
     background-color: #030303c9;
     border-radius: 0 0 20px 20px;
+    transition: background-color 0.5s;
 }
 
 li {
@@ -58,7 +59,7 @@ a {
 
 .grey-back-color {
     background-color: rgb(222, 222, 222) !important;
-    transition: var(--transition);
+    transition: background-color 0.5s;
 }
 
 .black-color {
@@ -248,7 +249,7 @@ nav .nav-right .menu li:hover a::before {
         border-radius: 100%;
         transition: all 1s;
         z-index: 4;
-        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 
         &:hover {
             cursor: pointer;
@@ -607,7 +608,7 @@ header nav .nav-left {
 /* tooltip for shop button __Start__*/
 
 
-/* Darkmode box ___Start___ */
+/* Dark mode box ___Start___ */
 /* The switch - the box around the slider */
 label.switch-theme-mode {
     font-size: 17px;
@@ -659,4 +660,11 @@ label.switch-theme-mode input:checked+.slider:before {
     box-shadow: inset 15px -4px 0px 15px #fff000;
 }
 
-/* Darkmode box ___End___ */
+.box-shadow-header {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+.box-shadow-search-box {
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.4) !important;
+}
+/* Dark mode box ___End___ */
