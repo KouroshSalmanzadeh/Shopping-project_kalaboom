@@ -202,7 +202,7 @@ function hideTooltip() {
 const toggleSwitch = document.getElementById('mode-toggle');
 
 var lightColorItems = document.querySelectorAll('.light-theme-color');
-var logo = document.querySelector('.logo-img');
+var logo = document.querySelector('.logo-container');
 var header = document.querySelector('header');
 var body = document.querySelector('body');
 var menu = document.querySelector('.menu');
@@ -213,13 +213,19 @@ function switchTheme() {
 
         function setLight() {
             body.classList.add('white-back-color');
-            menu.classList.add('grey-back-color');
             header.classList.add('grey-back-color');
-            logo.src = "assets/img/logo/logo22-removebg-preview.png";
-            // logo.style.transition = "all 2.5s ease 3s";
+            menu.classList.add('grey-back-color');
             header.classList.add('box-shadow-header');
             searchBox.classList.remove('box-shadow-search-box');
-
+            
+            
+            body.classList.remove("black-light-back-color");
+            header.classList.remove("black-back-color");
+            menu.classList.remove("black-back-color");
+    
+            logo.classList.add("logo-light-mode");
+            logo.classList.remove("logo-dark-mode");
+            
             for (i = 0; i < lightColorItems.length; i++) {
                 lightColorItems[i].classList.add('black-color');
             }
@@ -228,12 +234,20 @@ function switchTheme() {
     } else {
 
         function setDark() {
+            body.classList.add("black-light-back-color");
+            header.classList.add("black-back-color");
+            menu.classList.add("black-back-color");
+            searchBox.classList.add('box-shadow-search-box');
+            
+            
             body.classList.remove('white-back-color');
             header.classList.remove('grey-back-color');
-            logo.src = "assets/img/logo/logo 22.1.png";
             menu.classList.remove('grey-back-color');
             header.classList.remove('box-shadow-header');
-            searchBox.classList.add('box-shadow-search-box');
+            
+            logo.classList.add("logo-dark-mode");
+            logo.classList.remove("logo-light-mode");
+
 
             for (i = 0; i < lightColorItems.length; i++) {
                 lightColorItems[i].classList.remove('black-color');
@@ -245,3 +259,22 @@ function switchTheme() {
 
 toggleSwitch.addEventListener('change', switchTheme);
 // Dark mode __End__
+
+
+// Loading __Start__
+document.onreadystatechange = function Loader() {
+    var loader = document.querySelector(".preloader");
+
+    if (document.readyState !== "complete") {
+        debugger
+        loader.style.visibility = "visible";
+        loader.style.opacity = "1";
+        
+        loader.classList.remove("preloader-hidden");
+        loader.classList.add("preloader-active");
+    } else {
+        loader.classList.remove("preloader-active");
+        loader.classList.add("preloader-hidden");
+    }
+};
+// Loading __End__

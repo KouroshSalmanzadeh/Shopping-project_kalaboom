@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +8,43 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <script src="https://kit.fontawesome.com/6821008935.js" crossorigin="anonymous"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <title>Kalaboom</title>
 </head>
 
-<body class="reveal-right">
+<body>
+    <div class="preloader">
+        <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
+                    <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
+                    <circle cx="43" cy="111" r="13" />
+                    <circle cx="102" cy="111" r="13" />
+                </g>
+                <g class="cart__lines" stroke="currentColor">
+                    <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" stroke-dasharray="338 338" stroke-dashoffset="-338" />
+                    <g class="cart__wheel1" transform="rotate(-90,43,111)">
+                        <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                    </g>
+                    <g class="cart__wheel2" transform="rotate(90,102,111)">
+                        <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
 
     <!-- Header ___Start___ -->
-    <header>
+    <header class="reveal-right">
         <div class="banner">
-            <a href="#"><img src="assets/img/banners/banner 1.webp" alt="تخفیف خرید شب یلدا"></a>
+            <a href="#"><img src="assets/img/banners/454.webp" alt="تخفیف خرید شب یلدا"></a>
         </div>
         <nav>
             <div class="container1">
                 <div class="nav-right reveal-top">
                     <a href="index.html" style="display: contents;">
-                        <img src="assets/img/logo/logo 22.1.png" class="logo-img" alt="Kalaboom website">
+                        <div class="logo-container" alt="Kalaboom website"></div>
                     <span class="logo light-theme-color">Kala<b style="color: #9bd661;">Boom</b></span>
                     </a>
                     
@@ -115,6 +135,7 @@
             </div>
         </nav>
         <section class="slider"></section>
+        
     </header>
     <!-- Header ___End___ -->
 
