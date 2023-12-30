@@ -141,14 +141,19 @@ window.addEventListener("DOMContentLoaded", function () {
 
 
 // hide and show logo when search box is focus __Satrt__
+var menu = document.querySelector('.menu');
+setTimeout(() => {
+    menu.style.background = "#202022";
+}, 2000);
 function hideWithSearchbox() {
-    document.querySelector('.menu').classList.add('hide-for-search');
-    document.querySelector('.menu').classList.remove('show-for-search');
+    menu.classList.add('hide-for-search');
+    menu.classList.remove('show-for-search');
 }
 
 function showWithSearchbox() {
-    document.querySelector('.menu').classList.remove('hide-for-search');
-    document.querySelector('.menu').classList.add('show-for-search');
+    // menu.style.background = "none";
+    menu.classList.remove('hide-for-search');
+    menu.classList.add('show-for-search');
 }
 // hide and show logo when search box is focus __End__
 
@@ -261,20 +266,54 @@ toggleSwitch.addEventListener('change', switchTheme);
 // Dark mode __End__
 
 
-// Loading __Start__
-document.onreadystatechange = function Loader() {
-    var loader = document.querySelector(".preloader");
+// // // Loading __Start__
 
-    if (document.readyState !== "complete") {
-        debugger
-        loader.style.visibility = "visible";
-        loader.style.opacity = "1";
-        
+var loader = document.querySelector(".preloader");
+let bb = document.styleSheets[1].cssRules[2];
+let ba = document.styleSheets[1].cssRules[3];
+
+
+window.onload = function() {
+    Myloader();
+};
+
+function Myloader() {
+    setTimeout(() => {
+        bb.style.top = "50%"; 
+        ba.style.bottom = "50%";
+    }, 700);
+
+    setTimeout(() => {
         loader.classList.remove("preloader-hidden");
         loader.classList.add("preloader-active");
-    } else {
+    }, 1200);
+
+        
+    setTimeout(() => {
         loader.classList.remove("preloader-active");
         loader.classList.add("preloader-hidden");
+        setTimeout(() => {
+            bb.style.top = "0"; 
+            ba.style.bottom = "0";
+        }, 500);
+    }, 3000);
+    
+    function updateProgressBar(percentage) {
+        const progressBar = document.getElementById('progress-bar');
+        progressBar.style.width = percentage + '%';
+        progressBar.innerHTML = percentage + '%';
     }
+
+    let progress = 0;
+    const intervalId = setInterval(function() {
+        progress += 3;
+        updateProgressBar(progress);
+
+        if (progress >= 100) {
+            clearInterval(intervalId);
+        }
+    }, 90);
 };
+
+
 // Loading __End__

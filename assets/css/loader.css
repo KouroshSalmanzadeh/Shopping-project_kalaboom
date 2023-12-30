@@ -1,0 +1,193 @@
+/* Loading  __start__ */
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 10%, 90%);
+    --fg: hsl(var(--hue), 10%, 10%);
+    --trans-dur: 0.3s;
+}
+
+body::before,
+body::after {
+    content: "";
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    backdrop-filter: blur(2px);
+    background-color: #0000006b;
+    z-index: 1;
+}
+
+body:before {
+    top: 0;
+    transform: translateY(-100%);
+    transition: all .2s ease;
+}
+
+body:after {
+    bottom: 0;
+    transform: translateY(100%);
+    transition: all .2s ease;
+}
+
+.preloader {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .4s ease, visibility .3s ease;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.preloader-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cart {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    width: 8em;
+    height: 8em;
+    z-index: 3;
+}
+
+.cart__lines,
+.cart__top,
+.cart__wheel1,
+.cart__wheel2,
+.cart__wheel-stroke {
+    animation: cartLines 2s ease-in-out infinite;
+}
+
+.cart__lines {
+    stroke: var(--green-logo-color);
+}
+
+.cart__top {
+    animation-name: cartTop;
+}
+
+.cart__wheel1 {
+    animation-name: cartWheel1;
+    transform: rotate(-0.25turn);
+    transform-origin: 43px 111px;
+}
+
+.cart__wheel2 {
+    animation-name: cartWheel2;
+    transform: rotate(0.25turn);
+    transform-origin: 102px 111px;
+}
+
+.cart__wheel-stroke {
+    animation-name: cartWheelStroke
+}
+
+.cart__track {
+    stroke: hsla(var(--hue), 10%, 10%, 0.1);
+    transition: stroke var(--trans-dur);
+}
+
+#progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    height: 5px;
+    width: 0;
+    text-align: left;
+    color: white;
+    background: linear-gradient(90deg , #fe908f 30%, #9bd661 60%, #fdbe5c 100%);
+}
+
+/* .done {
+    transition: all .33s ease;
+} */
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue), 10%, 10%);
+        --fg: hsl(var(--hue), 10%, 90%);
+    }
+
+    .cart__track {
+        stroke: hsla(var(--hue), 10%, 90%, 0.1);
+    }
+}
+
+/* Animations */
+@keyframes cartLines {
+
+    from,
+    to {
+        opacity: 0;
+    }
+
+    8%,
+    92% {
+        opacity: 1;
+    }
+}
+
+@keyframes cartTop {
+    from {
+        stroke-dashoffset: -338;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: 338;
+    }
+}
+
+@keyframes cartWheel1 {
+    from {
+        transform: rotate(-0.25turn);
+    }
+
+    to {
+        transform: rotate(2.75turn);
+    }
+}
+
+@keyframes cartWheel2 {
+    from {
+        transform: rotate(0.25turn);
+    }
+
+    to {
+        transform: rotate(3.25turn);
+    }
+}
+
+@keyframes cartWheelStroke {
+
+    from,
+    to {
+        stroke-dashoffset: 81.68;
+    }
+
+    50% {
+        stroke-dashoffset: 40.84;
+    }
+}
+
+/* Loading  __End__ */

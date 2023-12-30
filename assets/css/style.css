@@ -86,7 +86,7 @@ a {
 
 /* header ___Start___ */
 header {
-    width: 100vw;
+    width: 100%;
     height: 155px;
     background-color: #202022;
     border-radius: 0 0 20px 20px;
@@ -100,7 +100,7 @@ div.banner {
 }
 
 div.banner img {
-    width: 100vw;
+    width: 100%;
 }
 
 /* banner style ___End___ */
@@ -145,7 +145,6 @@ nav .nav-right .menu {
     width: 30vw;
     margin-right: 20px;
     z-index: 2;
-    background: #202022;
     padding: 10px 0;
     transition: all 1s;
 }
@@ -216,7 +215,7 @@ nav .nav-right .menu li:hover a::before {
 }
 
 .reveal-right {
-    position: relative;
+    /* position: relative; */
     transform: translatex(100%);
     opacity: 0;
     transition: 1s all ease;
@@ -694,7 +693,7 @@ label.switch-theme-mode input:checked+.slider:before {
 
 
 /* Loading  __start__ */
-:root {
+/* :root {
     --hue: 223;
     --bg: hsl(var(--hue), 10%, 90%);
     --fg: hsl(var(--hue), 10%, 10%);
@@ -723,7 +722,7 @@ label.switch-theme-mode input:checked+.slider:before {
     background-color: #0000006b;
     z-index: 1;
 
-}
+} */
 /* 
 .preloader:before {
     top: 0;
@@ -734,7 +733,7 @@ label.switch-theme-mode input:checked+.slider:before {
     bottom: 0;
     transform: translateY(100%);
 } */
-
+/* 
 .preloader {
     width: 100%;
     height: 100vh;
@@ -746,7 +745,7 @@ label.switch-theme-mode input:checked+.slider:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all ease-in-out 5s;
+    transition: all ease-in-out 2s;
     z-index: 1;
     opacity: 0;
     visibility: hidden;
@@ -795,10 +794,10 @@ label.switch-theme-mode input:checked+.slider:before {
 .cart__track {
     stroke: hsla(var(--hue), 10%, 10%, 0.1);
     transition: stroke var(--trans-dur);
-}
+} */
 
 /* Dark theme */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --bg: hsl(var(--hue), 10%, 10%);
         --fg: hsl(var(--hue), 10%, 90%);
@@ -807,10 +806,10 @@ label.switch-theme-mode input:checked+.slider:before {
     .cart__track {
         stroke: hsla(var(--hue), 10%, 90%, 0.1);
     }
-}
+} */
 
 /* Animations */
-@keyframes cartLines {
+/* @keyframes cartLines {
 
     from,
     to {
