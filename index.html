@@ -39,18 +39,31 @@
 
     <!-- Header ___Start___ -->
     <header class="reveal-right">
-        <div class="banner">
-            <a href="#"><img src="assets/img/banners/454.webp" alt="تخفیف خرید شب یلدا"></a>
+        <div class="side-nav-main hide-on-med-up">
+            <div class="overlay"></div>
+            <div class="side-nav">
+            </div>
         </div>
         <nav>
-            <div class="container1">
+            <div class="banner">
+                <a href="#"><img src="assets/img/banners/454.webp" alt="تخفیف خرید شب یلدا"></a>
+            </div>
+            
+            <div class="container">
+                <!-- Mobile size ___Satrt___ -->
+                <div class="three-line-menu reveal-top hide-on-med-up">
+                    <div class="middle-line-menu"></div>
+                </div>
+                <!-- Mobile size ___End___ -->
+                
+                <!-- Desktop size ___Start___ -->
                 <div class="nav-right reveal-top">
                     <a href="index.html" style="display: contents;">
                         <div class="logo-container" alt="Kalaboom website"></div>
-                    <span class="logo light-theme-color">Kala<b style="color: #9bd661;">Boom</b></span>
+                        <span class="logo light-theme-color">Kala<b style="color: #9bd661;">Boom</b></span>
                     </a>
                     
-                    <div class="menu">
+                    <div class="menu hide-on-med-down">
                         <ul>
                             <li onmousemove="menuHover('shirt')" onmouseout="menuBlur('shirt')">
                                 <a href="#" class="light-theme-color">
@@ -86,14 +99,14 @@
                     </div>
                 </div>
                 <div class="nav-left reveal-left">
-                    <div class="main-box-search">
+                    <div class="main-box-search hide-on-med-down">
                         <div class="search-box">
                             <input type="text" placeholder="کالای مد نظرتان را سرچ کنید" onfocus="hideWithSearchbox()" onblur="showWithSearchbox()">
                             <div class="search"></div>
                         </div>
                     </div>
 
-                    <div class="buttons">
+                    <div class="buttons hide-on-med-down">
                         <div class="buttonLogin button1" onmouseover="buttonHoverLogin('button1')" onmouseout="buttonBlurLogin('button1')">
                             <div class="button-wrapper">
                                 <a href="#">
@@ -117,7 +130,7 @@
                         </div>
                     </div>
                     
-                    <div class="container-shop">
+                    <div class="container-shop hide-on-med-down">
                         <button class="button-shop">
                             <span class="svgIcon">
                                 <i class="fa-solid fa-cart-shopping" id="fa-cart-shopping"></i>
@@ -134,10 +147,9 @@
                     <!-- Darkmode box ___End___ -->
                       
                 </div>
+                <!-- Desktop size ___End___ -->
             </div>
         </nav>
-        <section class="slider"></section>
-        
     </header>
     <!-- Header ___End___ -->
 

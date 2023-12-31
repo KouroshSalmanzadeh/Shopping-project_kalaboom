@@ -208,30 +208,34 @@ const toggleSwitch = document.getElementById('mode-toggle');
 
 var lightColorItems = document.querySelectorAll('.light-theme-color');
 var logo = document.querySelector('.logo-container');
-var header = document.querySelector('header');
+var nav = document.querySelector('nav');
 var body = document.querySelector('body');
 var menu = document.querySelector('.menu');
 var searchBox = document.querySelector('.search');
-
+var threeLineMenu = document.styleSheets[0].cssRules[81].cssRules[11];
+var slideNav = document.querySelector(".side-nav");
 function switchTheme() {
     if (toggleSwitch.checked) {
 
         function setLight() {
             body.classList.add('white-back-color');
-            header.classList.add('grey-back-color');
+            nav.classList.add('grey-back-color');
             menu.classList.add('grey-back-color');
-            header.classList.add('box-shadow-header');
+            nav.classList.add('box-shadow-header');
+            threeLineMenu.style.background = "black";
+            slideNav.style.background = "white";
             searchBox.classList.remove('box-shadow-search-box');
             
             
             body.classList.remove("black-light-back-color");
-            header.classList.remove("black-back-color");
+            nav.classList.remove("black-back-color");
             menu.classList.remove("black-back-color");
     
             logo.classList.add("logo-light-mode");
             logo.classList.remove("logo-dark-mode");
             
             for (i = 0; i < lightColorItems.length; i++) {
+                // debugger
                 lightColorItems[i].classList.add('black-color');
             }
         }
@@ -240,15 +244,18 @@ function switchTheme() {
 
         function setDark() {
             body.classList.add("black-light-back-color");
-            header.classList.add("black-back-color");
+            nav.classList.add("black-back-color");
             menu.classList.add("black-back-color");
             searchBox.classList.add('box-shadow-search-box');
+            threeLineMenu.style.background = "gainsboro";
+            slideNav.style.background = "black";
+
             
             
             body.classList.remove('white-back-color');
-            header.classList.remove('grey-back-color');
+            nav.classList.remove('grey-back-color');
             menu.classList.remove('grey-back-color');
-            header.classList.remove('box-shadow-header');
+            nav.classList.remove('box-shadow-header');
             
             logo.classList.add("logo-dark-mode");
             logo.classList.remove("logo-light-mode");
@@ -314,6 +321,26 @@ function Myloader() {
         }
     }, 90);
 };
-
-
 // Loading __End__
+
+
+// active three-line-menu ___Start___
+var a = document.querySelector(".three-line-menu");
+a.addEventListener("click", () => {
+    a.classList.toggle("active-menu");
+});
+// active three-line-menu ___End___
+
+
+// active side nav for mobile ___Start___
+var sideNavMain = document.querySelector(".side-nav-main");
+var overlay = document.querySelector(".overlay");
+a.addEventListener("click", () => {
+    sideNavMain.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+    sideNavMain.classList.remove("active");
+    a.classList.remove("active-menu");
+});
+// active side nav for mobile ___End___
