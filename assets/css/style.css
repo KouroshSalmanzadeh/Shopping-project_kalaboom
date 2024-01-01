@@ -166,15 +166,17 @@ nav .nav-right .menu li:nth-child(4) {
     width: 125px;
 }
 
-nav .nav-right .menu li a {
+nav .nav-right .menu li a,
+.menu-mobile li a {
     color: gainsboro;
     position: relative;
     display: block;
-    font-size: 1vw;
+    font-size: 1.2em;
     transition: all 0.4s ease;
 }
 
-nav .nav-right .menu li:hover a {
+nav .nav-right .menu li:hover a,
+.menu-mobile li:hover a {
     color: var(--green-logo-color) !important;
 }
 
@@ -183,11 +185,13 @@ nav .nav-right .menu li i {
     transition: all 0.4s ease;
 }
 
-nav .nav-right .menu li:hover i {
+nav .nav-right .menu li:hover i,
+.menu-mobile li:hover i {
     color: var(--pink-logo-color) !important;
 }
 
-nav .nav-right .menu li a::before {
+nav .nav-right .menu li a::before,
+.menu-mobile li a::before {
     content: "";
     width: 0%;
     height: 3px;
@@ -199,7 +203,8 @@ nav .nav-right .menu li a::before {
     transition: var(--transition);
 }
 
-nav .nav-right .menu li:hover a::before {
+nav .nav-right .menu li:hover a::before,
+.menu-mobile li:hover a::before {
     width: 100%;
     left: auto;
     right: 0;
@@ -806,6 +811,7 @@ label.switch-theme-mode input:checked+.slider:before {
         opacity: 0;
         visibility: hidden;
     }
+
     /* three-line-menu for side nav ___End___ */
 
     /* side nav for mobile  __Start__ */
@@ -829,28 +835,79 @@ label.switch-theme-mode input:checked+.slider:before {
         transition: all 1s ease;
     }
 
-    .side-nav-main.active{
+    .side-nav-main.active {
         width: 100%;
     }
+
     .side-nav-main.active .overlay {
         opacity: 1;
         visibility: visible;
     }
-    
+
     .side-nav-main .side-nav {
-        width: 100%;
+        width: 0;
         height: 100vh;
         background: #080808e8;
         position: absolute;
-        transform: translateX(100%);
         z-index: 3;
+        visibility: hidden;
+        opacity: 0;
         transition: all .5s ease;
     }
 
     .side-nav-main.active .side-nav {
-        transform: translateX(25%);
-
+        width: 75%;
+        visibility: visible;
+        opacity: 1;
     }
+
+    .menu-mobile {
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s ease;
+    }
+
+    .side-nav-main.active .side-nav .menu-mobile {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .menu-mobile ul {
+        width: 95%;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .menu-mobile ul li a {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-mobile ul li a i {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--orange-logo-color);
+    }
+
+    .menu-mobile ul li a span {
+        width: 150px;
+        margin-right: 5px;
+        font-size: 18px;
+    }
+
+    .menu-mobile li a::before {
+        bottom: 0;
+    }
+
     /* side nav for mobile  __Start__ */
 
 
