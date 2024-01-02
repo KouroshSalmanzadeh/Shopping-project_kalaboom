@@ -81,6 +81,7 @@ function revealTop() {
         } else {
             reveals[i].classList.remove('active-top');
         };
+
     };
 };
 
@@ -137,6 +138,17 @@ window.addEventListener("DOMContentLoaded", function () {
     const myTimeout = setTimeout(revealLeft, 1225);
 
 });
+
+// reveal top for app bar mobile ___Start___
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        var revealsAppBar = document.querySelectorAll('.box-app-bar');
+        for (i = 0; i < revealsAppBar.length; i++) {
+            revealsAppBar[i].classList.add('active-top');
+        };
+    }, 2000);
+})
+// reveal top for app bar mobile ___End___
 // reveal and active for boxs ___End___
 
 
@@ -213,7 +225,9 @@ var body = document.querySelector('body');
 var menu = document.querySelector('.menu');
 var searchBox = document.querySelector('.search');
 var threeLineMenu = document.styleSheets[0].cssRules[81].cssRules[11];
-var slideNav = document.querySelector(".side-nav");
+var sideNav = document.querySelector(".side-nav");
+var appBar = document.querySelector(".app-bar");
+
 function switchTheme() {
     if (toggleSwitch.checked) {
 
@@ -222,8 +236,9 @@ function switchTheme() {
             nav.classList.add('grey-back-color');
             menu.classList.add('grey-back-color');
             nav.classList.add('box-shadow-header');
+            appBar.classList.add("light-mode");
             threeLineMenu.style.background = "black";
-            slideNav.style.background = "white";
+            sideNav.classList.add("light-mode");
             searchBox.classList.remove('box-shadow-search-box');
             
             
@@ -235,7 +250,6 @@ function switchTheme() {
             logo.classList.remove("logo-dark-mode");
             
             for (i = 0; i < lightColorItems.length; i++) {
-                // debugger
                 lightColorItems[i].classList.add('black-color');
             }
         }
@@ -248,13 +262,14 @@ function switchTheme() {
             menu.classList.add("black-back-color");
             searchBox.classList.add('box-shadow-search-box');
             threeLineMenu.style.background = "gainsboro";
-            slideNav.style.background = "black";
+            sideNav.classList.remove("light-mode");
 
             
             
             body.classList.remove('white-back-color');
             nav.classList.remove('grey-back-color');
             menu.classList.remove('grey-back-color');
+            appBar.classList.remove("light-mode");
             nav.classList.remove('box-shadow-header');
             
             logo.classList.add("logo-dark-mode");
@@ -344,3 +359,48 @@ overlay.addEventListener("click", () => {
     a.classList.remove("active-menu");
 });
 // active side nav for mobile ___End___
+
+// active box of app bar when clicked ___Start___
+var click = false;
+function activeAppBarBox (type) {
+    var typeBox = type;
+
+    switch (typeBox) {
+        case 'خانه':
+            if (click == true) {
+                document.querySelector('.main-box-app-bar .active').classList.remove('active');
+                click = false;
+            }
+            document.querySelector('.main-box-app-bar :nth-child(1)').classList.add('active');
+            click = true;
+            break;
+            
+        case 'فروشگاه':
+            if (click == true) {
+                document.querySelector('.main-box-app-bar .active').classList.remove('active');
+                click = false;
+            }
+            document.querySelector('.main-box-app-bar .shop').classList.add('active');
+            click = true;
+            break;
+
+        case 'سبد خرید':
+            if (click == true) {
+                document.querySelector('.main-box-app-bar .active').classList.remove('active');
+                click = false;
+            }
+            document.querySelector('.main-box-app-bar :nth-child(3)').classList.add('active');
+            click = true;
+            break;
+
+        case 'پروفایل':
+            if (click == true) {
+                document.querySelector('.main-box-app-bar .active').classList.remove('active');
+                click = false;
+            }
+            document.querySelector('.main-box-app-bar :nth-child(4)').classList.add('active');
+            click = true;
+            break;
+    }
+}
+// active box of app bar when clicked ___End___

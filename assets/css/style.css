@@ -46,6 +46,11 @@ a {
     --dark-back: #000;
     --light-back: #fff;
 
+    --background-dark-mode: #202022;
+    --background-light-mode: #dedede;
+
+    --color-text-dark-mode: gainsboro;
+
 }
 
 .white-color {
@@ -747,7 +752,8 @@ label.switch-theme-mode input:checked+.slider:before {
         width: auto;
     }
 
-    nav .nav-right span.logo {
+    nav .nav-right span.logo,
+    .logo {
         font-size: 8vw;
         background-image: linear-gradient(180deg, #9dd860 43%, #000 60%, #ff9191 70%);
         -webkit-background-clip: text;
@@ -847,22 +853,31 @@ label.switch-theme-mode input:checked+.slider:before {
     .side-nav-main .side-nav {
         width: 0;
         height: 100vh;
-        background: #080808e8;
+        background: var(--pink-logo-color);
         position: absolute;
         z-index: 3;
         visibility: hidden;
         opacity: 0;
-        transition: all .5s ease;
+        transition: all .4s ease;
+        clip-path: circle(0% at -20% -20%);
     }
 
     .side-nav-main.active .side-nav {
         width: 75%;
         visibility: visible;
+        z-index: 10;
         opacity: 1;
+        background: #080808e8;
+        clip-path: circle(141.4% at 0 0);
+        transition: background-color 1s ease, border-radius 0.3s ease, clip-path 0.5s cubic-bezier(0.81, 0.51, 0.09, 1.05);
+    }
+
+    .side-nav.light-mode {
+        background: white !important;
     }
 
     .menu-mobile {
-        margin-top: 100px;
+        margin-top: 40px;
         display: flex;
         justify-content: center;
         visibility: hidden;
@@ -895,7 +910,7 @@ label.switch-theme-mode input:checked+.slider:before {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: var(--orange-logo-color);
+        color: var(--orange-logo-color) !important;
     }
 
     .menu-mobile ul li a span {
@@ -908,7 +923,115 @@ label.switch-theme-mode input:checked+.slider:before {
         bottom: 0;
     }
 
-    /* side nav for mobile  __Start__ */
+    .logo-side-nav {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    /* side nav for mobile  __End__ */
+
+    /* app bar for mobile ___Start___ */
+    .app-bar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        border-radius: 20px 20px 0 0;
+        background-color: var(--background-dark-mode);
+        bottom: 0;
+        top: auto;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
+        transition: 1s all ease;
+    }
+
+    .app-bar .main-box-app-bar {
+        width: 90%;
+        height: 90px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar {
+        position: relative;
+        width: 80px;
+        height: 50px;
+        border-radius: 20px;
+        padding: 10px 7px;
+        box-sizing: content-box;
+        overflow: hidden;
+        transition: all 0.6s ease;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar span.select-box-app-bar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        background-color: #353535;
+        border-radius: 20px;
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar.active span.select-box-app-bar  {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        z-index: -1;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar a {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar a i {
+        font-size: 22px;
+        color: var(--orange-logo-color);
+        transition: all .5s ease;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar.active a i{
+        color: var(--pink-logo-color);
+        transition: all .5s ease;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar.active a span.text-box-app-bar {
+        color: var(--green-logo-color);
+        font-weight: 600;
+        transition: all .1s ease;
+    }
+
+    .app-bar .main-box-app-bar .box-app-bar a span.text-box-app-bar {
+        color: var(--color-text-dark-mode);
+        margin-top: 5px;
+        transition: .1s all ease;
+    }
+
+    .app-bar.light-mode {
+        background-color: var(--background-light-mode);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .app-bar.light-mode .main-box-app-bar .box-app-bar a span.text-box-app-bar {
+        transition: 1s all ease;
+        color: black;
+    }
+
+    .app-bar.light-mode .main-box-app-bar .box-app-bar.active a span.text-box-app-bar {
+        color: var(--green-logo-color);
+        transition: all .2s ease;
+    }
+    /* app bar for mobile ___End___ */
 
 
 }

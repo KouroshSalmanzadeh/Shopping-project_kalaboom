@@ -39,10 +39,16 @@
 
     <!-- Header ___Start___ -->
     <header class="reveal-right">
+
+        <!-- Mobile size ___Satrt___ -->
         <div class="side-nav-main hide-on-med-up">
             <div class="overlay"></div>
             <div class="side-nav">
-                <div class="menu-mobile hide-on-med-up">
+                <a href="index.html" class="logo-side-nav">
+                    <div class="logo-container" alt="Kalaboom website"></div>
+                    <span class="logo light-theme-color">Kala<b style="color: #9bd661;">Boom</b></span>
+                </a>
+                <div class="menu-mobile">
                     <ul>
                         <li onmousemove="menuHover('shirt')" onmouseout="menuBlur('shirt')">
                             <a href="#" class="light-theme-color">
@@ -78,6 +84,8 @@
                 </div>
             </div>
         </div>
+        <!-- Mobile size ___End___ -->
+
         <nav>
             <div class="banner">
                 <a href="#"><img src="assets/img/banners/454.webp" alt="تخفیف خرید شب یلدا"></a>
@@ -186,6 +194,43 @@
         </nav>
     </header>
     <!-- Header ___End___ -->
+
+
+
+    <!-- Mobile size ___Satrt___ -->
+    <div class="app-bar reveal-left hide-on-med-up">
+        <div class="main-box-app-bar">
+            <div class="box-app-bar reveal-top" onclick="activeAppBarBox('خانه')">
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="text-box-app-bar">خانه</span>
+                </a>
+                <span class="select-box-app-bar"></span>
+            </div>
+            <div class="box-app-bar reveal-top shop" onclick="activeAppBarBox('فروشگاه')">
+                <a href="#">
+                    <i class="fa-solid fa-shop"></i>
+                    <span class="text-box-app-bar">فروشگاه</span>
+                </a>
+                <span class="select-box-app-bar"></span>
+            </div>
+            <div class="box-app-bar reveal-top" onclick="activeAppBarBox('سبد خرید')">
+                <a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="text-box-app-bar">سبد خرید</span>
+                </a>
+                <span class="select-box-app-bar"></span>
+            </div>
+            <div class="box-app-bar reveal-top" onclick="activeAppBarBox('پروفایل')">
+                <a href="#">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span class="text-box-app-bar">پروفایل</span>
+                </a>
+                <span class="select-box-app-bar"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile size ___End___ -->
 
 </body>
 
