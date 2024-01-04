@@ -14,55 +14,46 @@
 //     }
 //   });
 
-// animate for i tag when hover ___Strat___
-function menuHover(a) {
-    var type = a;
-    switch (type) {
-        case 'shirt':
-            document.querySelector('.fa-shirt').classList.add('fa-bounce');
-            break;
 
-        case 'shoe':
-            document.querySelector('.fa-shoe-prints').classList.add('fa-bounce');
-            break;
+// animate for i tag when hover ___Start___
+function menuHover(type) {
+    const targetClass = {
+        // for mobile menu
+        shirt: '.menu-mobile .fa-shirt',
+        shoe: '.menu-mobile .fa-shoe-prints',
+        clock: '.menu-mobile .fa-clock',
+        ring: '.menu-mobile .fa-ring',
+        glasses: '.menu-mobile .fa-glasses',
 
-        case 'clock':
-            document.querySelector('.fa-clock').classList.add('fa-bounce');
-            break;
-
-        case 'ring':
-            document.querySelector('.fa-ring').classList.add('fa-bounce');
-            break;
-
-        case 'glasses':
-            document.querySelector('.fa-glasses').classList.add('fa-bounce');
-            break;
+        // for desktop menu
+        shirtDesk: '.menu .fa-shirt',
+        shoeDesk: '.menu .fa-shoe-prints',
+        clockDesk: '.menu .fa-clock',
+        ringDesk: '.menu .fa-ring',
+        glassesDesk: '.menu .fa-glasses',
     };
-};
 
-function menuBlur(a) {
-    var type = a;
-    switch (type) {
-        case 'shirt':
-            document.querySelector('.fa-shirt').classList.remove('fa-bounce');
-            break;
+    document.querySelector(targetClass[type]).classList.add('fa-bounce');
+}
 
-        case 'shoe':
-            document.querySelector('.fa-shoe-prints').classList.remove('fa-bounce');
-            break;
+function menuBlur(type) {
+    const targetClass = {
+        // for mobile menu
+        shirt: '.menu-mobile .fa-shirt',
+        shoe: '.menu-mobile .fa-shoe-prints',
+        clock: '.menu-mobile .fa-clock',
+        ring: '.menu-mobile .fa-ring',
+        glasses: '.menu-mobile .fa-glasses',
 
-        case 'clock':
-            document.querySelector('.fa-clock').classList.remove('fa-bounce');
-            break;
-
-        case 'ring':
-            document.querySelector('.fa-ring').classList.remove('fa-bounce');
-            break;
-
-        case 'glasses':
-            document.querySelector('.fa-glasses').classList.remove('fa-bounce');
-            break;
+        // for desktop menu
+        shirtDesk: '.menu .fa-shirt',
+        shoeDesk: '.menu .fa-shoe-prints',
+        clockDesk: '.menu .fa-clock',
+        ringDesk: '.menu .fa-ring',
+        glassesDesk: '.menu .fa-glasses',
     };
+
+    document.querySelector(targetClass[type]).classList.remove('fa-bounce');
 }
 // animate for i tag when hover ___End___
 
@@ -149,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
 })
 // reveal top for app bar mobile ___End___
-// reveal and active for boxs ___End___
 
 
 // hide and show logo when search box is focus __Satrt__
@@ -157,6 +147,7 @@ var menu = document.querySelector('.menu');
 setTimeout(() => {
     menu.style.background = "#202022";
 }, 2000);
+
 function hideWithSearchbox() {
     menu.classList.add('hide-for-search');
     menu.classList.remove('show-for-search');
@@ -219,7 +210,7 @@ function hideTooltip() {
 const toggleSwitch = document.getElementById('mode-toggle');
 
 var lightColorItems = document.querySelectorAll('.light-theme-color');
-var logo = document.querySelector('.logo-container');
+var logo = document.querySelectorAll('.logo-container');
 var nav = document.querySelector('nav');
 var body = document.querySelector('body');
 var menu = document.querySelector('.menu');
@@ -227,6 +218,8 @@ var searchBox = document.querySelector('.search');
 var threeLineMenu = document.styleSheets[0].cssRules[81].cssRules[11];
 var sideNav = document.querySelector(".side-nav");
 var appBar = document.querySelector(".app-bar");
+var menuMobileButton = document.querySelector(".container-menu-mobile button");
+var menuMobileButtonA = document.querySelectorAll(".container-menu-mobile button a");
 
 function switchTheme() {
     if (toggleSwitch.checked) {
@@ -239,16 +232,24 @@ function switchTheme() {
             appBar.classList.add("light-mode");
             threeLineMenu.style.background = "black";
             sideNav.classList.add("light-mode");
+            for (i = 0; i < menuMobileButtonA.length; i++) {
+                menuMobileButtonA[i].style.color = "black";
+            }
+            menuMobileButton.style.color = "black";
+
             searchBox.classList.remove('box-shadow-search-box');
-            
-            
+
+
             body.classList.remove("black-light-back-color");
             nav.classList.remove("black-back-color");
             menu.classList.remove("black-back-color");
-    
-            logo.classList.add("logo-light-mode");
-            logo.classList.remove("logo-dark-mode");
             
+
+            for (i = 0; i < logo.length; i++) {
+                logo[i].classList.add("logo-light-mode");
+                logo[i].classList.remove("logo-dark-mode");
+            }
+
             for (i = 0; i < lightColorItems.length; i++) {
                 lightColorItems[i].classList.add('black-color');
             }
@@ -262,18 +263,24 @@ function switchTheme() {
             menu.classList.add("black-back-color");
             searchBox.classList.add('box-shadow-search-box');
             threeLineMenu.style.background = "gainsboro";
+            for (i = 0; i < menuMobileButtonA.length; i++) {
+                menuMobileButtonA[i].style.color = "gainsboro";
+            }
+            menuMobileButton.style.color = "gainsboro";
             sideNav.classList.remove("light-mode");
 
-            
-            
+
+
             body.classList.remove('white-back-color');
             nav.classList.remove('grey-back-color');
             menu.classList.remove('grey-back-color');
             appBar.classList.remove("light-mode");
             nav.classList.remove('box-shadow-header');
-            
-            logo.classList.add("logo-dark-mode");
-            logo.classList.remove("logo-light-mode");
+
+            for (i = 0; i < logo.length; i++) {
+                logo[i].classList.add("logo-dark-mode");
+                logo[i].classList.remove("logo-light-mode");
+            }
 
 
             for (i = 0; i < lightColorItems.length; i++) {
@@ -295,13 +302,13 @@ let bb = document.styleSheets[1].cssRules[2];
 let ba = document.styleSheets[1].cssRules[3];
 
 
-window.onload = function() {
+window.onload = function () {
     Myloader();
 };
 
 function Myloader() {
     setTimeout(() => {
-        bb.style.top = "50%"; 
+        bb.style.top = "50%";
         ba.style.bottom = "50%";
     }, 700);
 
@@ -310,16 +317,16 @@ function Myloader() {
         loader.classList.add("preloader-active");
     }, 1200);
 
-        
+
     setTimeout(() => {
         loader.classList.remove("preloader-active");
         loader.classList.add("preloader-hidden");
         setTimeout(() => {
-            bb.style.top = "0"; 
+            bb.style.top = "0";
             ba.style.bottom = "0";
         }, 500);
     }, 3000);
-    
+
     function updateProgressBar(percentage) {
         const progressBar = document.getElementById('progress-bar');
         progressBar.style.width = percentage + '%';
@@ -327,7 +334,7 @@ function Myloader() {
     }
 
     let progress = 0;
-    const intervalId = setInterval(function() {
+    const intervalId = setInterval(function () {
         progress += 3;
         updateProgressBar(progress);
 
@@ -362,7 +369,8 @@ overlay.addEventListener("click", () => {
 
 // active box of app bar when clicked ___Start___
 var click = false;
-function activeAppBarBox (type) {
+
+function activeAppBarBox(type) {
     var typeBox = type;
 
     switch (typeBox) {
@@ -374,7 +382,7 @@ function activeAppBarBox (type) {
             document.querySelector('.main-box-app-bar :nth-child(1)').classList.add('active');
             click = true;
             break;
-            
+
         case 'فروشگاه':
             if (click == true) {
                 document.querySelector('.main-box-app-bar .active').classList.remove('active');
@@ -404,3 +412,11 @@ function activeAppBarBox (type) {
     }
 }
 // active box of app bar when clicked ___End___
+
+
+// active menu mobile when clicked categoties
+var categoties = document.querySelector('.categories');
+var categotiesButton = document.querySelector('.categories button');
+categotiesButton.addEventListener('click', function () {
+    categoties.classList.toggle('active');
+});
