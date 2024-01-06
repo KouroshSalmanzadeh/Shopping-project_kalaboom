@@ -420,3 +420,19 @@ var categotiesButton = document.querySelector('.categories button');
 categotiesButton.addEventListener('click', function () {
     categoties.classList.toggle('active');
 });
+
+
+// accordion on header 
+const cardsContainer = document.querySelector(".slider-accordion");
+
+cardsContainer.addEventListener("click", (e) => {
+  const target = e.target.closest(".card");
+
+  if (!target) return;
+
+  cardsContainer.querySelectorAll(".card").forEach((card) => {
+    card.classList.remove("active");
+  });
+
+  target.classList.add("active");
+});
