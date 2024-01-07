@@ -425,7 +425,7 @@ categotiesButton.addEventListener('click', function () {
 // accordion on header 
 const cardsContainer = document.querySelector(".slider-accordion");
 
-cardsContainer.addEventListener("click", (e) => {
+cardsContainer.addEventListener("mousemove", (e) => {
   const target = e.target.closest(".card");
 
   if (!target) return;
