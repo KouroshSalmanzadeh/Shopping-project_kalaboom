@@ -233,7 +233,7 @@
             <div class="slider-header">
                 <div class="slider-accordion">
 
-                    <div class="card">
+                    <div class="card" onclick="selectSlider('shirt')">
                         <img class="background" src="assets/img/clothing4.jpg" alt="لباس و پوشاک شیک">
                         <div class="card-content">
                             <div class="profile-img">
@@ -267,7 +267,7 @@
                         <div class="backdrop"></div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" onclick="selectSlider('shoe')">
                         <img class="background" src="assets/img/shoes11.png" alt="کفش های متنوع">
                         <div class="card-content">
                             <div class="profile-img">
@@ -326,7 +326,7 @@
                         <div class="backdrop"></div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" onclick="selectSlider('clock')">
                         <img class="background" src="assets/img/watch3.jpg" alt="ساعت های خاص">
                         <div class="card-content">
                             <div class="profile-img">
@@ -398,7 +398,7 @@
                         <div class="backdrop"></div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" onclick="selectSlider('accessory')">
                         <img class="background" src="assets/img/accessory5.jpg" alt="اکسسوری های جذاب">
                         <div class="card-content">
                             <div class="profile-img">
@@ -451,7 +451,7 @@
                         <div class="backdrop"></div>
                     </div>
 
-                    <div class="card">
+                    <div class="card" onclick="selectSlider('glasses')">
                         <img class="background" src="assets/img/glasses1.jpg" alt="عینک های کم نظیر">
                         <div class="card-content">
                             <div class="profile-img">
@@ -521,17 +521,19 @@
                     </div>
 
                 </div>
-                <div class="slider-nav">
-                    <ul>
-                        <li><a href="#">لباس</a></li>
-                        <li><a href="#">عینک</a></li>
-                        <li><a href="#">کفش</a></li>
-                        <li><a href="#">ساعت</a></li>
-                        <li><a href="#">اکسسوری</a></li>
-                    </ul>
-                </div>
-                <div class="slider-content">
-
+                <div class="sliders">
+                    <div class="slider-nav">
+                        <ul>
+                            <li class="shirt" onclick="activeSlide('shirt')"><a href="#">لباس</a></li>
+                            <li class="shoe" onclick="activeSlide('shoe')"><a href="#">کفش</a></li>
+                            <li class="clock" onclick="activeSlide('clock')"><a href="#">عینک</a></li>
+                            <li class="accessory" onclick="activeSlide('accessory')"><a href="#">ساعت</a></li>
+                            <li class="glasses" onclick="activeSlide('glasses')"><a href="#">اکسسوری</a></li>
+                        </ul>
+                    </div>
+                    <div class="slider-content">
+    
+                    </div>
                 </div>
             </div>
         </div>

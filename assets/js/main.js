@@ -243,7 +243,7 @@ function switchTheme() {
             body.classList.remove("black-light-back-color");
             nav.classList.remove("black-back-color");
             menu.classList.remove("black-back-color");
-            
+
 
             for (i = 0; i < logo.length; i++) {
                 logo[i].classList.add("logo-light-mode");
@@ -422,17 +422,70 @@ categotiesButton.addEventListener('click', function () {
 });
 
 
-// accordion on header 
+// accordion on header ___Start___
 const cardsContainer = document.querySelector(".slider-accordion");
+const cards = document.querySelectorAll(".slider-accordion .card");
+let activeCard = null;
 
-cardsContainer.addEventListener("mousemove", (e) => {
-  const target = e.target.closest(".card");
-
-  if (!target) return;
-
-  cardsContainer.querySelectorAll(".card").forEach((card) => {
-    card.classList.remove("active");
-  });
-
-  target.classList.add("active");
+cardsContainer.addEventListener('mouseover', (event) => {
+    const targetCard = event.target.closest('.card');
+    if (targetCard && !targetCard.classList.contains('active')) {
+        if (activeCard !== null) {
+            activeCard.classList.remove('active');
+        }
+        targetCard.classList.add('active');
+        activeCard = targetCard;
+    }
 });
+
+cardsContainer.addEventListener('mouseout', (event) => {
+    const targetCard = event.target.closest('.card');
+    if (targetCard && targetCard.classList.contains('active')) {
+        targetCard.classList.remove('active');
+        activeCard = null;
+    }
+});
+
+const sliderHeader = document.querySelector(".slider-header");
+function selectSlider(type) {
+    const targetClass = {
+        shirt: '.slider-header .slider-nav .shirt',
+        shoe: '.slider-header .slider-nav .shoe',
+        clock: '.slider-header .slider-nav .clock',
+        accessory: '.slider-header .slider-nav .accessory',
+        glasses: '.slider-header .slider-nav .glasses',
+    };
+
+    sliderHeader.classList.add("active");
+    document.querySelector(targetClass[type]).classList.add('selected');
+}
+// accordion on header ___End___
+
+// select slider ___Start___
+function activeSlide(type) {
+    var selectedSlide = document.querySelector(".slider-header .slider-nav .selected")
+    var selectedSlideBefore = document.styleSheets[0].cssRules[109];
+    var selectedSlideliBefore = document.styleSheets[0].cssRules[102];
+    var selectedSlideliafter = document.styleSheets[0].cssRules[103];
+    const targetSlide = {
+        shirt: '.slider-header .slider-nav .shirt',
+        shoe: '.slider-header .slider-nav .shoe',
+        clock: '.slider-header .slider-nav .clock',
+        accessory: '.slider-header .slider-nav .accessory',
+        glasses: '.slider-header .slider-nav .glasses',
+    };
+
+    selectedSlideBefore.style.height = "0";
+    selectedSlideliafter.style.height = "70px";
+    selectedSlideliBefore.style.height = "70px";
+    setTimeout(() => {
+        selectedSlide.classList.remove("selected");
+        document.querySelector(targetSlide[type]).classList.add('selected');
+    }, 300);
+    setTimeout(() => {
+        selectedSlideBefore.style.height = "100%";
+        selectedSlideliafter.style.height = "50px";
+        selectedSlideliBefore.style.height = "50px";
+    }, 600);
+}
+// select slider ___End___
