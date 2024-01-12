@@ -455,15 +455,25 @@ function selectSlider(type) {
         accessory: '.slider-header .slider-nav .accessory',
         glasses: '.slider-header .slider-nav .glasses',
     };
+    const targetSwiper = {
+        shirt: '.slider-content .swiper.swiper-shirt',
+        shoe: '.slider-content .swiper.swiper-shoes',
+        clock: '.slider-content .swiper.swiper-clock',
+        accessory: '.slider-content .swiper.swiper-accessory',
+        glasses: '.slider-content .swiper.swiper-glasses',
+    };
 
     sliderHeader.classList.add("active");
     document.querySelector(targetClass[type]).classList.add('selected');
+
+    document.querySelector(targetSwiper[type]).classList.add('active-swiper');
 }
 // accordion on header ___End___
 
 // select slider ___Start___
 function activeSlide(type) {
-    var selectedSlide = document.querySelector(".slider-header .slider-nav .selected")
+    var selectedSlide = document.querySelector(".slider-header .slider-nav .selected");
+    var activeSwiper = document.querySelector(".slider-content .swiper.active-swiper");
     var selectedSlideBefore = document.styleSheets[0].cssRules[109];
     var selectedSlideliBefore = document.styleSheets[0].cssRules[102];
     var selectedSlideliafter = document.styleSheets[0].cssRules[103];
@@ -474,6 +484,13 @@ function activeSlide(type) {
         accessory: '.slider-header .slider-nav .accessory',
         glasses: '.slider-header .slider-nav .glasses',
     };
+    const targetSwiper = {
+        shirt: '.slider-content .swiper.swiper-shirt',
+        shoe: '.slider-content .swiper.swiper-shoes',
+        clock: '.slider-content .swiper.swiper-clock',
+        accessory: '.slider-content .swiper.swiper-accessory',
+        glasses: '.slider-content .swiper.swiper-glasses',
+    };
 
     selectedSlideBefore.style.height = "0";
     selectedSlideliafter.style.height = "70px";
@@ -481,11 +498,30 @@ function activeSlide(type) {
     setTimeout(() => {
         selectedSlide.classList.remove("selected");
         document.querySelector(targetSlide[type]).classList.add('selected');
+
+        activeSwiper.classList.remove("active-swiper");
     }, 300);
     setTimeout(() => {
         selectedSlideBefore.style.height = "100%";
         selectedSlideliafter.style.height = "50px";
         selectedSlideliBefore.style.height = "50px";
+        document.querySelector(targetSwiper[type]).classList.add("active-swiper");
     }, 600);
 }
 // select slider ___End___
+
+// Swiper ___Start___
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+// Swiper ___End___
