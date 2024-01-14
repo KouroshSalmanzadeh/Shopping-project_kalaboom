@@ -97,22 +97,25 @@ header {
 
 nav {
     width: 100%;
-    height: 155px;
+    height: 75px;
+    position: sticky;
+    top: 0;
     background-color: #202022;
     border-radius: 0 0 20px 20px;
-    position: static;
     box-shadow: 0 6px 6px rgba(255, 255, 255, 0.1);
-    transition: 1s all ease;
+    transition: 0.5s all ease;
+    z-index: 100;
 }
 
 /* banner style ___Start___ */
 div.banner {
     width: 100%;
+    height: 70px;
 }
 
 div.banner img {
     width: 100%;
-    height: 60%;
+    height: 100%;
 }
 
 /* banner style ___End___ */
@@ -409,12 +412,11 @@ nav .nav-right .menu li:hover a::before,
 
 /* hide and show logo when search box is focus __Satrt__ */
 
-header nav .nav-left {
+nav .nav-left {
     float: left;
-    width: 30%;
-    margin-left: -30px;
     display: flex;
     align-items: center;
+    width: 30%;
     justify-content: space-evenly;
 }
 
@@ -712,14 +714,15 @@ label.switch-theme-mode input:checked+.slider:before {
 
 /* slider for header (Desktop) ___Start___ */
 .slider-header {
-    position: absolute;
+    position: relative;
     inset: 0;
     width: 75%;
     height: 700px;
     margin: auto;
     background-color: #f7f7f7;
-    z-index: -1;
-    margin-top: 50px;
+    z-index: 1;
+    margin-top: 20px;
+    margin-bottom: 120px;
     border-radius: 25px;
     display: flex;
     align-items: center;
@@ -775,6 +778,7 @@ label.switch-theme-mode input:checked+.slider:before {
 .card.active .background {
     filter: brightness(1) grayscale(0);
     scale: 1.2;
+    object-position: center;
 }
 
 
@@ -1045,10 +1049,6 @@ label.switch-theme-mode input:checked+.slider:before {
         width: 90%;
     }
 
-    nav {
-        height: 100px;
-    }
-
     nav .container {
         display: flex;
         justify-content: space-between;
@@ -1057,7 +1057,7 @@ label.switch-theme-mode input:checked+.slider:before {
 
     div.banner {
         width: 100%;
-        height: 30%;
+        height: 20px;
     }
 
     .logo-container {
@@ -1065,8 +1065,12 @@ label.switch-theme-mode input:checked+.slider:before {
         height: 14vw;
     }
 
-    header nav .nav-left {
-        width: auto;
+    nav .nav-right {
+        margin-right: 10px;
+    }
+
+    nav .nav-left {
+        width: 15%;
     }
 
     nav .nav-right span.logo,
@@ -1093,62 +1097,19 @@ label.switch-theme-mode input:checked+.slider:before {
 
     /* Dark mode toggle ___End___*/
 
-    /* three-line-menu for side nav ___Start___ */
-    .three-line-menu {
-        margin-top: 10px;
-        z-index: 10;
-    }
-
-    .three-line-menu::before,
-    .middle-line-menu::before,
-    .three-line-menu::after {
-        content: '';
-        display: block;
-        width: 25px;
-        height: 2px;
-        margin: 7px 0;
-        background-color: gainsboro;
-        transition: all .4s ease;
-    }
-
-    .middle-line-menu::before {
-        width: 20px;
-    }
-
-
-    .active-menu.three-line-menu {
-        margin-top: -50px;
-    }
-
-    .active-menu.three-line-menu::before {
-        transform: translateY(10px) rotate(45deg);
-
-    }
-
-    .active-menu.three-line-menu::after {
-        transform: translateY(-8px) rotate(-45deg);
-
-    }
-
-    .active-menu.three-line-menu .middle-line-menu::before {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    /* three-line-menu for side nav ___End___ */
 
     /* side nav for mobile  __Start__ */
     .side-nav-main {
         width: 0;
-        height: 100vh;
-        position: absolute;
-        z-index: 1;
+        height: 100%;
+        position: fixed;
+        z-index: 1000;
         transition: all .5s ease;
     }
 
     .side-nav-main .overlay {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         position: fixed;
         z-index: 2;
         background: #101010c9;
@@ -1182,7 +1143,7 @@ label.switch-theme-mode input:checked+.slider:before {
     .side-nav-main.active .side-nav {
         width: 75%;
         visibility: visible;
-        z-index: 10;
+        z-index: 1000;
         opacity: 1;
         background: #080808e8;
         clip-path: circle(141.4% at 0 0);
@@ -1318,7 +1279,7 @@ label.switch-theme-mode input:checked+.slider:before {
         background-color: var(--background-dark-mode);
         bottom: 0;
         top: auto;
-        z-index: -1;
+        z-index: 10;
         display: flex;
         justify-content: center;
         box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
@@ -1408,8 +1369,68 @@ label.switch-theme-mode input:checked+.slider:before {
         color: var(--green-logo-color);
         transition: all .2s ease;
     }
-
     /* app bar for mobile ___End___ */
+
+    /* slider ___Start___ */
+    .slider-header {
+        height: 525px;
+        width: 100%;
+    }
+
+    .slider-header .slider-accordion {
+        margin-inline: 0;
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-accordion .card {
+        width: 90%;
+    }
+
+    .slider-content {
+        width: 105%;
+        height: 92%;
+        right: -25px;
+    }
+
+    .swiper {
+        width: 92%;
+    }
+    
+    .slider-nav {
+        margin: 0;
+        height: 7%;
+    }
+
+    .slider-nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .slider-nav ul li {
+        width: 17%;
+    }
+
+    .slider-header.active .slider-nav ul li a {
+        font-size: 12px;
+    }
+
+    .slider-header.active .slider-nav ul li.selected a {
+        font-size: 14px;
+    }
+
+    .slider-header.active .slider-nav ul li.selected::before {
+        right: -23px;
+        top: -20px;
+    }
+
+    .slider-header.active .slider-nav ul li.selected::after {
+        top: -20px;
+        left: -23px;
+    }
+    /* slider ___End___ */
 
 
 }

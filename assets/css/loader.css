@@ -189,5 +189,52 @@ body:after {
         stroke-dashoffset: 40.84;
     }
 }
-
 /* Loading  __End__ */
+
+
+@media screen and (max-width: 767px) {
+    
+    /* three-line-menu for side nav ___Start___ */
+    .three-line-menu {
+        margin-top: 10px;
+        z-index: 1002;
+    }
+
+    .three-line-menu::before,
+    .middle-line-menu::before,
+    .three-line-menu::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 2px;
+        margin: 7px 0;
+        background-color: gainsboro;
+        transition: all .4s ease;
+    }
+
+    .middle-line-menu::before {
+        width: 20px;
+    }
+
+
+    .active-menu.three-line-menu {
+        margin-top: -50px;
+    }
+
+    .active-menu.three-line-menu::before {
+        transform: translateY(10px) rotate(45deg);
+
+    }
+
+    .active-menu.three-line-menu::after {
+        transform: translateY(-8px) rotate(-45deg);
+
+    }
+
+    .active-menu.three-line-menu .middle-line-menu::before {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* three-line-menu for side nav ___End___ */
+}
