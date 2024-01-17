@@ -15,7 +15,7 @@ body::after {
     left: 0;
     backdrop-filter: blur(2px);
     background-color: #0000006b;
-    z-index: 1;
+    z-index: 2000;
 }
 
 body:before {

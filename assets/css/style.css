@@ -41,7 +41,7 @@ a {
     --transition: all 0.4s ease-out;
     --pink-logo-color: #ff9191;
     --orange-logo-color: #ffc05b;
-    --green-logo-color: #9bd661;
+    --green-logo-color: #00ff71;
 
     --dark-back: #000;
     --light-back: #fff;
@@ -721,7 +721,7 @@ label.switch-theme-mode input:checked+.slider:before {
     margin: auto;
     background-color: #f7f7f7;
     z-index: 1;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 120px;
     border-radius: 25px;
     display: flex;
@@ -1028,11 +1028,52 @@ label.switch-theme-mode input:checked+.slider:before {
 .swiper-pagination-bullet-active {
     background-color: var(--pink-logo-color) !important;
 }
-
-
 /* swiper ___End___ */
-
 /* slider for header (Desktop) ___End___ */
+
+/* Best selling itemes */
+.best-selling-items {
+    width: 100%;
+    height: 500px;
+    display: flex;
+}
+
+.best-selling-items .title-best-selling {
+    width: 20%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.best-selling-items .title-best-selling span {
+    font-size: 30px;
+    font-weight: 700;
+    background: linear-gradient(179deg, #00ff71 10%, black 90% 128%, #00ff71 109%);
+    background-clip: text;
+    color: transparent;
+}
+.best-selling-items .title-best-selling span i {
+    color: var(--pink-logo-color);
+}
+
+.best-selling-items .items-best-selling {
+    width: 80%;
+    height: 90%;
+    background: linear-gradient(45deg, black 10%, transparent 80%);
+    border-radius: 15px 0 0 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
