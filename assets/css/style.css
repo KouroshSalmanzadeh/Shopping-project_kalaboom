@@ -149,7 +149,7 @@ nav .nav-right {
 
 nav .nav-right span.logo {
     font-size: 2vw;
-    background-image: linear-gradient(180deg, #9dd860 43%, #000 60%, #ff9191 70%);
+    background-image: linear-gradient(180deg, #00ff71 43%, #000 60%, #ff9191 70%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: cursive;
@@ -936,7 +936,7 @@ label.switch-theme-mode input:checked+.slider:before {
 /* active slider __Start__ */
 .slider-header.active {
     width: 100%;
-    background: linear-gradient(180deg, rgb(0 0 0 / 2%) 10%, rgb(155 214 97));
+    background: linear-gradient(180deg, rgb(0 0 0 / 2%) 10%, #00ff71);
 }
 
 .slider-header.active .slider-accordion {
@@ -979,26 +979,26 @@ label.switch-theme-mode input:checked+.slider:before {
 
 
 /* swiper ___Start___ */
-.swiper {
+.slider-header .slider-content .swiper {
     width: 98%;
     height: 100%;
 }
 
-.swiper {
+.slider-header .slider-content .swiper {
     visibility: hidden;
     opacity: 0;
     height: 0;
     transition: all .4s ease;
 }
 
-.swiper.active-swiper {
+.slider-header .slider-content .swiper.active-swiper {
     visibility: visible;
     opacity: 1;
     height: 100%;
     padding-top: 20px;
 }
 
-.swiper-slide {
+.slider-header .slider-content .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: transparent;
@@ -1007,7 +1007,7 @@ label.switch-theme-mode input:checked+.slider:before {
     align-items: center;
 }
 
-.swiper-slide img {
+.slider-header .slider-content .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
@@ -1016,56 +1016,126 @@ label.switch-theme-mode input:checked+.slider:before {
     border-radius: 10px;
 }
 
-.swiper {
+.slider-header .slider-content .swiper {
     margin-left: auto;
     margin-right: auto;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.slider-header .slider-content .swiper-button-next,
+.slider-header .slider-content .swiper-button-prev {
     color: var(--pink-logo-color) !important;
 }
 
-.swiper-pagination-bullet-active {
+.slider-header .slider-content .swiper-pagination-bullet-active {
     background-color: var(--pink-logo-color) !important;
 }
 /* swiper ___End___ */
 /* slider for header (Desktop) ___End___ */
+
 
 /* Best selling itemes */
 .best-selling-items {
     width: 100%;
     height: 500px;
     display: flex;
+    align-items: center;
+    border-radius: 15px 0 0 15px;
+    background: linear-gradient(45deg, black 10%, transparent 80%);
 }
 
 .best-selling-items .title-best-selling {
-    width: 20%;
+    width: 40%;
     height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .best-selling-items .title-best-selling span {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
-    background: linear-gradient(179deg, #00ff71 10%, black 90% 128%, #00ff71 109%);
+    background: linear-gradient(317deg, #00ff71 14%, black 40% 64%, #00FF71 74%);
     background-clip: text;
     color: transparent;
 }
+
 .best-selling-items .title-best-selling span i {
     color: var(--pink-logo-color);
 }
 
 .best-selling-items .items-best-selling {
-    width: 80%;
-    height: 90%;
-    background: linear-gradient(45deg, black 10%, transparent 80%);
-    border-radius: 15px 0 0 15px;
+    width: 60%;
+    height: 85%;
+    background: linear-gradient(90deg, transparent 3%, #00ff71d9 100%);
+    border-radius: 0 300px 300px 0;
+    display: flex;
+    align-items: center;
 }
 
 
+.swiper.mySwiper1 {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.swiper.mySwiper1 .swiper-wrapper {
+    width: 97%;
+    height: 80%;
+}
 
+.swiper.mySwiper1 .swiper-slide {
+    width: 300px;
+    height:100%;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.swiper.mySwiper1 .swiper-slide:hover {
+    scale: 1.1;
+    border-radius: 20px;
+}
+
+.swiper.mySwiper1 .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper.mySwiper1 .swiper-button-next,
+.swiper.mySwiper1 .swiper-button-prev {
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    transition: all .4s ease;
+}
+
+.swiper.mySwiper1 .swiper-button-next::after,
+.swiper.mySwiper1 .swiper-button-prev::after {
+    font-size: 20px;
+    color: var(--pink-logo-color);
+    transition: all .2s ease;
+}
+
+.swiper.mySwiper1 .swiper-button-next:hover,
+.swiper.mySwiper1 .swiper-button-prev:hover {
+    background-color: var(--pink-logo-color);
+}
+
+.swiper.mySwiper1 .swiper-button-next:hover::after,
+.swiper.mySwiper1 .swiper-button-prev:hover::after {
+    color: var(--green-logo-color);
+    font-size: 30px;
+}
 
 
 
@@ -1410,6 +1480,7 @@ label.switch-theme-mode input:checked+.slider:before {
         color: var(--green-logo-color);
         transition: all .2s ease;
     }
+
     /* app bar for mobile ___End___ */
 
     /* slider ___Start___ */
@@ -1439,7 +1510,7 @@ label.switch-theme-mode input:checked+.slider:before {
     .swiper {
         width: 92%;
     }
-    
+
     .slider-nav {
         margin: 0;
         height: 7%;
@@ -1471,6 +1542,7 @@ label.switch-theme-mode input:checked+.slider:before {
         top: -20px;
         left: -23px;
     }
+
     /* slider ___End___ */
 
 

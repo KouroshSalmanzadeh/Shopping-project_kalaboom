@@ -447,6 +447,7 @@ cardsContainer.addEventListener('mouseout', (event) => {
 });
 
 const sliderHeader = document.querySelector(".slider-header");
+
 function selectSlider(type) {
     const targetClass = {
         shirt: '.slider-header .slider-nav .shirt',
@@ -511,10 +512,25 @@ function activeSlide(type) {
 // select slider ___End___
 
 // Swiper ___Start___
+// for first slider on header 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+//  for all slider and products
+var swiper1 = new Swiper(".mySwiper1", {
+    slidesPerView: 3.09,
+    spaceBetween: 25,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
