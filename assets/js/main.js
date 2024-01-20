@@ -541,3 +541,12 @@ var swiper1 = new Swiper(".mySwiper1", {
     },
 });
 // Swiper ___End___
+
+var SwiperWrapper = document.querySelector(".items-best-selling .swiper .swiper-wrapper");
+function wideningSwiperWrapper() {
+    if (SwiperWrapper.style.transform == "translate3d(3912.18px, 0px, 0px)") {
+        SwiperWrapper.style.width = "104%";
+    }else {
+        SwiperWrapper.style.width = "97%";
+    };
+};

@@ -1026,7 +1026,8 @@ label.switch-theme-mode input:checked+.slider:before {
     color: var(--pink-logo-color) !important;
 }
 
-.slider-header .slider-content .swiper-pagination-bullet-active {
+.slider-header .slider-content .swiper-pagination-bullet-active, 
+.swiper-pagination-bullet-active {
     background-color: var(--pink-logo-color) !important;
 }
 /* swiper ___End___ */
@@ -1064,8 +1065,8 @@ label.switch-theme-mode input:checked+.slider:before {
 }
 
 .best-selling-items .items-best-selling {
-    width: 60%;
-    height: 85%;
+    width: 65%;
+    height: 90%;
     background: linear-gradient(90deg, transparent 3%, #00ff71d9 100%);
     border-radius: 0 300px 300px 0;
     display: flex;
@@ -1075,7 +1076,7 @@ label.switch-theme-mode input:checked+.slider:before {
 
 .swiper.mySwiper1 {
     width: 80%;
-    height: 90%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1089,10 +1090,11 @@ label.switch-theme-mode input:checked+.slider:before {
 .swiper.mySwiper1 .swiper-slide {
     width: 300px;
     height:100%;
+    z-index: 0;
     text-align: center;
     border-radius: 20px;
     font-size: 18px;
-    background: #fff;
+    background: linear-gradient(45deg, #ffffff, transparent);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1102,14 +1104,54 @@ label.switch-theme-mode input:checked+.slider:before {
 .swiper.mySwiper1 .swiper-slide:hover {
     scale: 1.1;
     border-radius: 20px;
+    cursor: pointer;
 }
 
-.swiper.mySwiper1 .swiper-slide img {
-    display: block;
+.swiper.mySwiper1 .swiper-slide a {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.swiper.mySwiper1 .swiper-slide .img-item {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.swiper.mySwiper1 .swiper-slide .img-item img {
+    display: block;
+    width: 60%;
+    height: 90%;
+    object-fit: cover;
+    transition: all .5s ease;
+}
+
+.swiper.mySwiper1 .swiper-slide .img-item:hover img {
+    transform: translateY(-10%);
+    scale: 1.1;
+    transition: all .5s ease;
+}
+
+.swiper.mySwiper1 .swiper-slide .img-item .shadow-img {
+    width: 50%;
+    height: 0;
+    background: radial-gradient(50% 50% at 50% 50%,#000 0,transparent 100%);
+    opacity: .4;
+    filter: blur(4px);
+    border-radius: 20px;
+    transition: all .5s ease;
+}
+
+.swiper.mySwiper1 .swiper-slide .img-item:hover .shadow-img {
+    height: 20%;
+    transition: all .5s ease;
+}
+
 
 .swiper.mySwiper1 .swiper-button-next,
 .swiper.mySwiper1 .swiper-button-prev {
@@ -1137,12 +1179,49 @@ label.switch-theme-mode input:checked+.slider:before {
     font-size: 30px;
 }
 
+.swiper.mySwiper1 .swiper-slide::before {
+    content: "";
+    background-color: bisque;
+    position: absolute;
+    width: 100%;
+    height: 96%;
+    top: 15px;
+    right: 0;
+    z-index: -1;
+    border-radius: 20px;
+    transition: all 1s ease-in;
+    transition-delay: .2s;
+}
 
+.swiper.mySwiper1 .swiper-slide:hover::before {
+    height: 0;
+    border-radius: 20px 20px 0 0;
+    transition: all 1s ease;
+}
 
+.swiper.mySwiper1 .swiper-slide::after {
+    content: "";
+    position: absolute;
+    /* background-color: bisque; */
+    background: linear-gradient(180deg, bisque 10%, transparent 100%);
+    width: 99.5%;
+    height: 0;
+    right: 0.5px;
+    bottom: 95.8%;
+    z-index: -1;
+    border-radius: 25px 25px 0 0;
+    transition: all .2s ease-in;
+}
 
+.swiper.mySwiper1 .swiper-slide:hover::after {
+    height: 15px;
+    transition-delay: .9s;
+}
 
-
-
+.swiper.mySwiper1 .swiper-slide .details-item {
+    width: 100%;
+    height: 30%;
+}
 
 
 
