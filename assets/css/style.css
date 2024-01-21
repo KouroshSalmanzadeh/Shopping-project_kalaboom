@@ -1130,7 +1130,6 @@ label.switch-theme-mode input:checked+.slider:before {
 
 .swiper.mySwiper1 .swiper-slide .img-item img {
     display: block;
-    width: 60%;
     height: 90%;
     object-fit: cover;
     transition: all .5s ease;
