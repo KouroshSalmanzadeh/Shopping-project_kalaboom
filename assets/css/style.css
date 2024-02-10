@@ -22,9 +22,29 @@
     src: url(../fonts/yekan/Yekan.woff2) format(woff2);
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 11px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #000;
+    border-radius: 11px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--green-logo-color);
+    border-radius: 11px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #06ad51;
+}
+
 body {
     font-size: 16px;
-    font-family: 'vazir';
+    font-family: 'yekan';
     direction: rtl;
     background-color: #030303c9;
     border-radius: 0 0 20px 20px;
@@ -56,8 +76,8 @@ a {
 }
 
 .white-color {
-    color: white !important;
-    transition: 0.5s !important;
+    color: var(--color-text-dark-mode);
+    transition: color 0.5s !important;
 }
 
 .white-back-color {
@@ -66,18 +86,19 @@ a {
 }
 
 .grey-back-color {
-    background-color: rgb(222, 222, 222) !important;
+    background-color: rgb(242, 242, 242) !important;
+    transition: background-color 0.5s !important;
 }
 
 .black-color {
     color: black !important;
-    transition: 0.5s;
+    transition: color 0.5s !important;
 
 }
 
 .black-light-back-color {
-    background-color: #383838;
-    transition: background-color 0.5s;
+    background-color: #383838 !important;
+    transition: background-color 0.5s !important;
 }
 
 .black-back-color {
@@ -95,32 +116,28 @@ a {
 header {
     width: 100%;
     height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: 0.5s all ease !important;
+    overflow-x: clip;
 }
 
 nav {
     width: 100%;
     height: 75px;
-    position: sticky;
-    top: 0;
     background-color: #202022;
     border-radius: 0 0 20px 20px;
     box-shadow: 0 6px 6px rgba(255, 255, 255, 0.1);
     transition: 0.5s all ease;
-    z-index: 100;
 }
 
-/* banner style ___Start___ */
-div.banner {
-    width: 100%;
-    height: 70px;
+.hide-nav {
+    top: -80px;
+    opacity: 0 !important;
+    visibility: hidden;
+    transition: all ease 0.3s !important;
 }
-
-div.banner img {
-    width: 100%;
-    height: 100%;
-}
-
-/* banner style ___End___ */
 
 nav .nav-right {
     float: right;
@@ -249,15 +266,16 @@ nav .nav-right .menu li:hover a::before,
 }
 
 .reveal-left {
-    position: relative;
     transform: translatex(-100%);
     opacity: 0;
-    transition: 1s all ease;
+    visibility: hidden;
+    transition: .5s all ease;
 }
 
 .active-left {
     transform: translateX(0);
     opacity: 1;
+    visibility: visible;
 }
 
 /* reveal and active for boxs ___End___ */
@@ -346,7 +364,7 @@ nav .nav-right .menu li:hover a::before,
         border-bottom: 3px solid rgb(255 145 145);
         background: var(--orange-logo-color);
         color: rgb(0, 0, 0);
-        padding: 0 80px 0 20px;
+        padding: 0 60px 0 0;
         border-radius: 30px;
         box-shadow: 0 0 15px 0 #838383, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
         transition: all 1s;
@@ -404,12 +422,12 @@ nav .nav-right .menu li:hover a::before,
 /* hide and show logo when search box is focus __Satrt__ */
 .hide-for-search {
     transform: translateX(33%);
-    transition: all 1s;
+    transition: background-color 0s, transform 1s !important;
 }
 
 .show-for-search {
     transform: translateX(0);
-    transition: all 1s;
+    transition: background-color 3s, transform 1s !important;
 }
 
 /* hide and show logo when search box is focus __Satrt__ */
@@ -418,34 +436,29 @@ nav .nav-left {
     float: left;
     display: flex;
     align-items: center;
-    width: 30%;
+    width: auto;
     justify-content: space-evenly;
 }
 
 /* Login Button and Sign up __Start__*/
 
 .buttons {
-    width: 8vw;
+    width: 200px;
     height: auto;
     display: flex;
     justify-content: space-between;
+    padding: 0 15px;
 }
 
 .buttonLogin {
-    --width: 70px;
-    --height: 35px;
-    --tooltip-height: 35px;
-    --tooltip-width: 90px;
-    --gap-between-tooltip-to-button: 18px;
-    --button-color: #1163ff;
-    --tooltip-color: #fff;
-    width: var(--width);
-    height: var(--height);
+    width: 80px;
+    height: 40px;
     position: relative;
     text-align: center;
-    border-radius: 0.45em;
+    border-radius: 50px;
     transition: var(--transition);
     font-family: 'yekan';
+    overflow: hidden;
 }
 
 .button1 {
@@ -511,7 +524,7 @@ nav .nav-left {
 
 .active-button {
     width: 100%;
-    transition: var(--transition);
+    transition: all .3s ease;
     visibility: visible;
     opacity: 1;
     font-size: 1.3vw;
@@ -520,7 +533,7 @@ nav .nav-left {
 
 .hide-button {
     width: 0;
-    transition: var(--transition);
+    transition: all .3s ease;
     visibility: hidden;
     opacity: 0;
 }
@@ -599,6 +612,7 @@ nav .nav-left {
 /* tooltip for shop button __Start__*/
 .container-shop {
     position: relative;
+    padding-left: 15px;
 }
 
 .tooltip {
@@ -729,6 +743,13 @@ label.switch-theme-mode input:checked+.slider:before {
     display: flex;
     align-items: center;
     transition: var(--transition);
+}
+
+
+main {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
 }
 
 /* accordion __Start__ */
@@ -973,7 +994,7 @@ label.switch-theme-mode input:checked+.slider:before {
 .slider-header.active .slider-nav ul li.selected a {
     font-size: 23px;
     font-weight: 600;
-    color: var(--pink-logo-color);
+    color: var(--pink-logo-color) !important;
     transition: var(--transition);
 }
 
@@ -1045,6 +1066,7 @@ label.switch-theme-mode input:checked+.slider:before {
     align-items: center;
     border-radius: 15px 0 0 15px;
     background: linear-gradient(45deg, black 10%, transparent 80%);
+    overflow: hidden;
 }
 
 .best-selling-items .title-best-selling {
@@ -1261,11 +1283,12 @@ label.switch-theme-mode input:checked+.slider:before {
 
 .swiper.mySwiper1 .swiper-slide .details-item .title-item span:nth-child(1) {
     color: #0ba54f;
-    transition: all .4s ease-out;
+    transition: color .4s ease-out, font-size .4s ease-out;
     transition-delay: .9s;
     font-size: 20px;
     font-weight: 700;
 }
+
 .swiper.mySwiper1 .swiper-slide:hover .details-item .title-item span:nth-child(1) {
     color: var(--pink-logo-color);
     transition: all .4s ease-out;
@@ -1276,10 +1299,11 @@ label.switch-theme-mode input:checked+.slider:before {
 
 .swiper.mySwiper1 .swiper-slide .details-item .title-item span:nth-child(2) {
     color: var(--pink-logo-color);
-    transition: all .4s ease-out;
+    transition: color .4s ease-out, font-size .4s ease-out;
     transition-delay: 1s;
     font-size: 17px;
 }
+
 .swiper.mySwiper1 .swiper-slide:hover .details-item .title-item span:nth-child(2) {
     color: #0ba54f;
     transition: all .4s ease-out;
@@ -1301,6 +1325,7 @@ label.switch-theme-mode input:checked+.slider:before {
     transition: all .5s ease-out;
     transition-delay: 1s;
 }
+
 .swiper.mySwiper1 .swiper-slide:hover .details-item .product-rate-price span:nth-child(1) {
     opacity: 1;
     visibility: visible;
@@ -1316,7 +1341,6 @@ label.switch-theme-mode input:checked+.slider:before {
     font-weight: bold;
 
 }
-.swiper.mySwiper1 .swiper-slide:hover .details-item .product-rate-price span:nth-child(2) {}
 
 
 

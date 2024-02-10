@@ -1,20 +1,3 @@
-// // اسکرول را گوش کنید
-// window.addEventListener('scroll', function() {
-//     // ارتفاع اسکرول شده را دریافت کنید
-//     var scrollPosition = window.scrollY;
-
-//     // منوی ثابت
-//     var fixedMenu = document.getElementById('fixed-menu');
-
-//     // اگر اسکرول به اندازه کافی پایین رفته باشد، منو را فیکس کنید
-//     if (scrollPosition > 50) {
-//       fixedMenu.style.backgroundColor = '#555'; // تغییرات رنگ می‌تواند به سلیقه شما باشد
-//     } else {
-//       fixedMenu.style.backgroundColor = '#333'; // رنگ اصلی منو
-//     }
-//   });
-
-
 // animate for i tag when hover ___Start___
 function menuHover(type) {
     const targetClass = {
@@ -141,13 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 // reveal top for app bar mobile ___End___
 
-
-// hide and show logo when search box is focus __Satrt__
-var menu = document.querySelector('.menu');
-setTimeout(() => {
-    menu.style.background = "#202022";
-}, 2000);
-
 function hideWithSearchbox() {
     menu.classList.add('hide-for-search');
     menu.classList.remove('show-for-search');
@@ -208,84 +184,103 @@ function hideTooltip() {
 
 // Dark mode __Satrt__
 const toggleSwitch = document.getElementById('mode-toggle');
-
-var lightColorItems = document.querySelectorAll('.light-theme-color');
-var logo = document.querySelectorAll('.logo-container');
-var nav = document.querySelector('nav');
-var body = document.querySelector('body');
-var menu = document.querySelector('.menu');
-var searchBox = document.querySelector('.search');
-var threeLineMenu = document.styleSheets[1].cssRules[22].cssRules[1];
+let darkbackitem = document.querySelectorAll('.dark-theme-color');
+let whiteColorItems = document.querySelectorAll('.white-color');
+let logo = document.querySelectorAll('.logo-container');
+let body = document.querySelector('body');
+let menu = document.querySelector('.menu');
+let nav = document.querySelector('nav');
+let textSliderOfHeader = document.querySelectorAll('.slider-nav ul li a');
+let threeLineMenu = document.styleSheets[1].cssRules[22].cssRules[1];
+let appBar = document.querySelector(".app-bar");
 var sideNav = document.querySelector(".side-nav");
-var appBar = document.querySelector(".app-bar");
-var menuMobileButton = document.querySelector(".container-menu-mobile button");
-var menuMobileButtonA = document.querySelectorAll(".container-menu-mobile button a");
+// var searchBox = document.querySelector('.search');
 
 function switchTheme() {
     if (toggleSwitch.checked) {
-
         function setLight() {
+
             body.classList.add('white-back-color');
-            nav.classList.add('grey-back-color');
-            menu.classList.add('grey-back-color');
             nav.classList.add('box-shadow-header');
             appBar.classList.add("light-mode");
+            sliderHeader.classList.add('white-back-color');
             threeLineMenu.style.background = "black";
             sideNav.classList.add("light-mode");
-            for (i = 0; i < menuMobileButtonA.length; i++) {
-                menuMobileButtonA[i].style.color = "black";
+
+            for (let i = 0; i < darkbackitem.length; i++) {
+                darkbackitem[i].classList.add('grey-back-color');
             }
-            menuMobileButton.style.color = "black";
 
-            searchBox.classList.remove('box-shadow-search-box');
-
-
-            body.classList.remove("black-light-back-color");
-            nav.classList.remove("black-back-color");
-            menu.classList.remove("black-back-color");
-
+            for (let i = 0; i < whiteColorItems.length; i++) {
+                whiteColorItems[i].classList.add('black-color');
+            }
 
             for (i = 0; i < logo.length; i++) {
                 logo[i].classList.add("logo-light-mode");
                 logo[i].classList.remove("logo-dark-mode");
             }
 
-            for (i = 0; i < lightColorItems.length; i++) {
-                lightColorItems[i].classList.add('black-color');
-            }
+            // menu.classList.add('grey-back-color');
+            // for (i = 0; i < menuMobileButtonA.length; i++) {
+            //     menuMobileButtonA[i].style.color = "black";
+            // }
+
+            // searchBox.classList.remove('box-shadow-search-box');
+
+
+            // body.classList.remove("black-light-back-color");
+            // nav.classList.remove("black-back-color");
+            // menu.classList.remove("black-back-color");
+
+
+
+            // for (i = 0; i < lightColorItems.length; i++) {
+            //     lightColorItems[i].classList.add('black-color');
+            // }
         }
         setLight();
     } else {
 
         function setDark() {
-            body.classList.add("black-light-back-color");
-            nav.classList.add("black-back-color");
-            menu.classList.add("black-back-color");
-            searchBox.classList.add('box-shadow-search-box');
+            body.classList.remove('white-back-color');
+            nav.classList.remove('box-shadow-header');
+            appBar.classList.remove("light-mode");
+            sliderHeader.classList.remove('white-back-color');
             threeLineMenu.style.background = "gainsboro";
-            for (i = 0; i < menuMobileButtonA.length; i++) {
-                menuMobileButtonA[i].style.color = "gainsboro";
-            }
-            menuMobileButton.style.color = "gainsboro";
             sideNav.classList.remove("light-mode");
 
+            for (let i = 0; i < darkbackitem.length; i++) {
+                darkbackitem[i].classList.remove('grey-back-color');
+            }
 
-
-            body.classList.remove('white-back-color');
-            nav.classList.remove('grey-back-color');
-            menu.classList.remove('grey-back-color');
-            appBar.classList.remove("light-mode");
-            nav.classList.remove('box-shadow-header');
+            for (let i = 0; i < whiteColorItems.length; i++) {
+                whiteColorItems[i].classList.remove('black-color');
+            }
 
             for (i = 0; i < logo.length; i++) {
                 logo[i].classList.add("logo-dark-mode");
                 logo[i].classList.remove("logo-light-mode");
             }
+            // menu.classList.add("black-back-color");
+            // searchBox.classList.add('box-shadow-search-box');
+            // for (i = 0; i < menuMobileButtonA.length; i++) {
+            //     menuMobileButtonA[i].style.color = "gainsboro";
+            // }
+            // menuMobileButton.style.color = "gainsboro";
+            // sideNav.classList.remove("light-mode");
 
 
-            for (i = 0; i < lightColorItems.length; i++) {
-                lightColorItems[i].classList.remove('black-color');
-            }
+
+            // body.classList.remove('white-back-color');
+            // nav.classList.remove('grey-back-color');
+            // menu.classList.remove('grey-back-color');
+            // nav.classList.remove('box-shadow-header');
+
+
+
+            // for (i = 0; i < lightColorItems.length; i++) {
+            //     lightColorItems[i].classList.remove('black-color');
+            // }
         }
         setDark();
     }
@@ -293,6 +288,15 @@ function switchTheme() {
 
 toggleSwitch.addEventListener('change', switchTheme);
 // Dark mode __End__
+
+// hide logo when search box is focused
+let Searchbox = document.querySelector('.main-box-search input');
+Searchbox.addEventListener('focus', () => {
+    menu.classList.add('black-back-color');
+})
+Searchbox.addEventListener('blur', () => {
+    menu.classList.remove('black-back-color');
+})
 
 
 // // // Loading __Start__
@@ -475,9 +479,9 @@ function selectSlider(type) {
 function activeSlide(type) {
     var selectedSlide = document.querySelector(".slider-header .slider-nav .selected");
     var activeSwiper = document.querySelector(".slider-content .swiper.active-swiper");
-    var selectedSlideBefore = document.styleSheets[0].cssRules[109];
-    var selectedSlideliBefore = document.styleSheets[0].cssRules[102];
-    var selectedSlideliafter = document.styleSheets[0].cssRules[103];
+    var selectedSlideBefore = document.styleSheets[0].cssRules[114];
+    var selectedSlideliBefore = document.styleSheets[0].cssRules[107];
+    var selectedSlideliafter = document.styleSheets[0].cssRules[108];
     const targetSlide = {
         shirt: '.slider-header .slider-nav .shirt',
         shoe: '.slider-header .slider-nav .shoe',
@@ -543,10 +547,31 @@ var swiper1 = new Swiper(".mySwiper1", {
 // Swiper ___End___
 
 var SwiperWrapper = document.querySelector(".items-best-selling .swiper .swiper-wrapper");
+
 function wideningSwiperWrapper() {
-    if (SwiperWrapper.style.transform == "translate3d(3912.18px, 0px, 0px)") {
+    if (SwiperWrapper.style.transform == "translate3d(3923.75px, 0px, 0px)") {
         SwiperWrapper.style.width = "104%";
-    }else {
+    } else {
         SwiperWrapper.style.width = "97%";
     };
+};
+
+
+// Hide and show navbar when Scroll
+let prevScrollPos = window.pageYOffset;
+let header = document.querySelector("header");
+let initialShowThreshold = 200;
+
+window.onscroll = function () {
+    let currentScrollPos = window.pageYOffset;
+
+    if (currentScrollPos <= initialShowThreshold) {
+        header.classList.remove("hide-nav");
+    } else if (prevScrollPos > currentScrollPos) {
+        header.classList.remove("hide-nav");
+    } else {
+        header.classList.add("hide-nav");
+    }
+
+    prevScrollPos = currentScrollPos;
 };
